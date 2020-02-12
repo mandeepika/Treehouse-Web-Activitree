@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ng9-firebase-test": {
@@ -121,8 +121,16 @@
               "devServerTarget": "ng9-firebase-test:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "ng9-firebase-test"
+    }
+  },
+  "defaultProject": "ng9-firebase-test",
+  "cli": {
+    "analytics": "9c00d190-9de1-4ae5-8856-cf6fb79a518e"
+  }
 }

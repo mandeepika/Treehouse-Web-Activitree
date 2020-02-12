@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hazy-firebase-getstarted": {
+      "hosting": {
+        "ng9-firebase-test": [
+          "hazy-firebase-getstarted"
+        ]
+      }
+    }
+  }
+}
