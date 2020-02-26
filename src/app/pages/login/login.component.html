@@ -1,7 +1,10 @@
 <div class="container">
     <mat-card style="padding: 32px">
+        
         <mat-card-title>Sign in</mat-card-title>
+
         <div class="vertical-spacer"></div>
+
         <mat-card-content>
             <div fxLayout="column" fxLayoutAlign="strech">
                 <div fxLayout="column">
@@ -19,27 +22,30 @@
                 
                 <div class="vertical-spacer"></div>
 
-                <div fxFill fxLayout="row" fxLayoutAlign="space-around strech">
-                    <button mat-raised-button color="primary">Sign in</button>
-                    <button mat-raised-button>Register</button>
+                <div fxFill fxLayout="row" fxLayoutAlign="space-around">
+                    <button mat-raised-button style="width: 96px" color="primary">Sign in</button>
+                    <button mat-raised-button style="width: 96px">Register</button>
                 </div>
 
                 <div class="vertical-spacer"></div> 
 
                 <h3 style="margin: 0">Or continue with</h3>
 
-                <div fxLayout="row" fxLayoutAlign="space-between">
-                    <button mat-raised-button color="blue" (click)="loginWithGoogle()">
+                <div fxLayout="row">
+                    <button mat-raised-button class="loginwith-button" (click)="loginWithGoogle()">
                         <img height="24px" width="24px" src="https://madeby.google.com/static/images/google_g_logo.svg">
                         <span>&nbsp; Google</span>
                     </button>
 
-                    <button mat-raised-button color="blue" (click)="loginWithFacebook()">
+                    <span style="width: 8px"></span>
+
+                    <button mat-raised-button class="loginwith-button" (click)="loginWithFacebook()">
                         <img height="24px" width="24px" src="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico">
                         <span>&nbsp; Facebook</span>
                     </button>
                 </div>
             </div>
         </mat-card-content>
+
     </mat-card>
 </div>
