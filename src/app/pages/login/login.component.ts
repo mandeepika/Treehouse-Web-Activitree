@@ -12,8 +12,12 @@ export class LoginComponent implements OnInit {
   constructor(public auth: AngularFireAuth) {
   }
 
-  login() {
+  loginWithGoogle() {
     this.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+
+  loginWithFacebook() {
+    this.auth.signInWithPopup(new auth.FacebookAuthProvider());
   }
 
   ngOnInit(): void {

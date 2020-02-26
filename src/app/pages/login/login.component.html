@@ -3,7 +3,7 @@
         <mat-card-title>Sign in</mat-card-title>
         <div class="vertical-spacer"></div>
         <mat-card-content>
-            <div fxLayout="column" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutAlign="strech">
                 <div fxLayout="column">
                     <mat-form-field hideRequiredMarker>
                         <input matInput placeholder="Username" type="text" required>
@@ -25,11 +25,20 @@
                 </div>
 
                 <div class="vertical-spacer"></div> 
-    
-                <button mat-raised-button color="blue" (click)="login()">
-                    <img height="24px" width="24px" src="https://madeby.google.com/static/images/google_g_logo.svg">
-                    <span> Login with Google</span>
-                </button>
+
+                <h3 style="margin: 0">Or continue with</h3>
+
+                <div fxLayout="row" fxLayoutAlign="space-between">
+                    <button mat-raised-button color="blue" (click)="loginWithGoogle()">
+                        <img height="24px" width="24px" src="https://madeby.google.com/static/images/google_g_logo.svg">
+                        <span>&nbsp; Google</span>
+                    </button>
+
+                    <button mat-raised-button color="blue" (click)="loginWithFacebook()">
+                        <img height="24px" width="24px" src="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico">
+                        <span>&nbsp; Facebook</span>
+                    </button>
+                </div>
             </div>
         </mat-card-content>
     </mat-card>
