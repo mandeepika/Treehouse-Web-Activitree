@@ -4,8 +4,8 @@
     <span class="spacer"></span>
   
     <button mat-button *ngIf="auth.user | async as user; else showLogin" (click)="logout()">
-      <mat-icon>account_circle</mat-icon>
-      <span> {{ user.displayName }}</span>
+      <img class="avatar" src="{{user.photoURL}}" alt="Avatar"/>
+      <span>&nbsp; {{ user.displayName }}</span>
     </button>
   
     <ng-template #showLogin>
