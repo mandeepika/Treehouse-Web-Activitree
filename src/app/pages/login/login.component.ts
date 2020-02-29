@@ -9,7 +9,14 @@ import { auth } from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
+  email: string;
+  password: string;
+
   constructor(public auth: AngularFireAuth) {
+  }
+
+  loginWithEmailAndPassword() {
+    this.auth.signInWithEmailAndPassword(this.email, this.password);
   }
 
   loginWithGoogle() {

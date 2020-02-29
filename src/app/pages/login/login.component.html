@@ -9,12 +9,12 @@
             <div fxLayout="column" fxLayoutAlign="strech">
                 <div fxLayout="column">
                     <mat-form-field hideRequiredMarker>
-                        <input matInput placeholder="Username" type="text" required>
-                        <mat-icon matSuffix>account_box</mat-icon>
-                        <mat-error ></mat-error>
+                        <input #name="ngModel" matInput [(ngModel)]="email" placeholder="Email" type="text" required email>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="name.invalid && name.errors.email">Invalid Email Format</mat-error>
                     </mat-form-field>
                     <mat-form-field hideRequiredMarker>
-                        <input matInput placeholder="Password" type="password" required>
+                        <input matInput [(ngModel)]="password" placeholder="Password" type="password" required>
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
                     <mat-checkbox color="primary">Keep me signed in</mat-checkbox>
@@ -23,7 +23,7 @@
                 <div class="vertical-spacer"></div>
 
                 <div fxFill fxLayout="row" fxLayoutAlign="space-around">
-                    <button mat-raised-button style="width: 96px" color="primary">Sign in</button>
+                    <button mat-raised-button style="width: 96px" color="primary" (click)="loginWithEmailAndPassword()">Sign in</button>
                     <button mat-raised-button style="width: 96px">Register</button>
                 </div>
 
