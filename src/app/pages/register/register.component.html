@@ -1,36 +1,48 @@
-<div class="container">
-    <mat-card style="padding: 32px; min-width: 256px;">
+<div id="container">
 
-        <mat-card-title>Register</mat-card-title>
+    <mat-card id="card">
+        <mat-card-title>Sign up</mat-card-title>
 
         <div class="vertical-spacer"></div>
 
+        <div *ngIf="busy">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            <div class="vertical-spacer"></div>
+        </div>
+
         <mat-card-content>
-            <div fxLayout="column" fxLayoutAlign="strech">
+            <div *ngIf="!verificationEmailSent; else verification" fxLayout="column" fxLayoutAlign="strech">
                 <div fxLayout="column">
                     <mat-form-field hideRequiredMarker>
-                        <input #emailField="ngModel" matInput [(ngModel)]="email" placeholder="Email" type="text" required email>
+                        <input #emailField="ngModel" matInput [(ngModel)]="email" placeholder="Email" type="text" required email [disabled]="busy">
                         <mat-icon matSuffix>email</mat-icon>
                         <mat-error *ngIf="emailField.invalid && emailField.errors.email">Invalid Email Format</mat-error>
                     </mat-form-field>
 
                     <mat-form-field hideRequiredMarker>
-                        <input #passwordField="ngModel" matInput [(ngModel)]="password" placeholder="Password" type="password" required minlength="8">
+                        <input #passwordField="ngModel" matInput [(ngModel)]="password" placeholder="Password" type="password" required minlength="8" [disabled]="busy">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-error *ngIf="passwordField.invalid && passwordField.errors.minlength">Password must conatin at least 8 characters</mat-error>
                     </mat-form-field>
                     
                     <mat-form-field hideRequiredMarker>
-                        <input #passwordConfirm matInput placeholder="Confirm Password" type="password" required>
+                        <input #passwordConfirmField="ngModel" matInput [(ngModel)]="passwordConfirm" placeholder="Confirm Password" type="password" [pattern]="password" required [disabled]="busy">
                         <mat-icon matSuffix>vpn_key</mat-icon>
-                        <mat-error *ngIf="passwordConfirm == password">Inconsistent Password</mat-error>
+                        <mat-error *ngIf="passwordConfirmField.invalid && passwordConfirmField.errors.pattern">Inconsistent Password</mat-error>
                     </mat-form-field>
                 </div>
                 
                 <div class="vertical-spacer"></div>
 
-                <button mat-raised-button style="width: 96px" color="primary">Sign up</button>
+                <button id="register-btn" mat-raised-button color="primary" [disabled]="busy"
+                        (click)="register(emailField, passwordField, passwordConfirmField)">
+                        Sign up
+                </button>
             </div>
+
+            <ng-template #verification>
+                Please check your email ({{email}}) and follow the link to finish registration. 
+            </ng-template>
         </mat-card-content>
     </mat-card>
 </div>
