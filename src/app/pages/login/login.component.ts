@@ -26,7 +26,12 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithEmailAndPassword(): void {
-    this.login(fireAuth => fireAuth.signInWithEmailAndPassword(this.email, this.password));
+    if (this.email && this.password) {
+      this.login(fireAuth => fireAuth.signInWithEmailAndPassword(this.email, this.password));
+    }
+    else {
+      this.showMessage("Email and password cannot be empty");
+    }
   }
 
   loginWithGoogle(): void {
