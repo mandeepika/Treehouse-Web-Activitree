@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  auth = auth;
 
   constructor(
     private fireAuth: AngularFireAuth,
