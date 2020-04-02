@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng9-firebase-test';
+  title = 'activitree-edu-platform';
 
   constructor() {}
 }
