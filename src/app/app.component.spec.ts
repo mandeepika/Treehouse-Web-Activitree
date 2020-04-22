@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng9-firebase-test'`, () => {
+  it(`should have as title 'activitree-edu-platform'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng9-firebase-test');
+    expect(app.title).toEqual('activitree-edu-platform');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng9-firebase-test app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('activitree-edu-platform app is running!');
   });
 });

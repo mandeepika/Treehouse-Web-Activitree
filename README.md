@@ -1,6 +1,13 @@
-# Ng9FirebaseTest
+# Activitree Edu Web App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+- This project is built with [Angular](https://angular.io/) version 9.
+- UI components are made with [Angular Material](https://material.angular.io/).
+- Layout is made with [Angular Flex-Layout](https://github.com/angular/flex-layout).
+
+## Get Started
+
+- Install/Update [Node.js](https://nodejs.org/) and [Angular CLI](https://angular.io/cli);
+- Run `npm install` to install all dependencies. 
 
 ## Development server
 

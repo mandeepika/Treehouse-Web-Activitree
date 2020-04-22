@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "ng9-firebase-test",
-      "public": "dist/ng9-firebase-test",
+      "target": "activitree-edu-platform",
+      "public": "dist/activitree-edu-platform",
       "ignore": [
         "firebase.json",
         "**/.*",

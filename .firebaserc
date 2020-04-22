@@ -1,9 +1,9 @@
 {
   "targets": {
-    "hazy-firebase-getstarted": {
+    "activitree-edu": {
       "hosting": {
-        "ng9-firebase-test": [
-          "hazy-firebase-getstarted"
+        "activitree-edu-platform": [
+          "activitree-edu"
         ]
       }
     }

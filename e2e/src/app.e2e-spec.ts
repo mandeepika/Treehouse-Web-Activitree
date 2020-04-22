@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('ng9-firebase-test app is running!');
+    expect(page.getTitleText()).toEqual('activitree-edu-platform app is running!');
   });
 
   afterEach(async () => {
