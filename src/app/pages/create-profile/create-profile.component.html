@@ -1,26 +1,47 @@
-<p>create-profile works!</p>
-<h1>{{title}}</h1>
-<form>
-    <input type="text" name="name" id="name" placeholder="Enter your name">
-    <br>
-    <br>
-    <input type="text" name="email" placeholder="Enter your email">
-    <br>
-    <br>
-    <input type="text" name="DOB" placeholder="mm/dd/yyyy">
-    <br>
-    <br>
-    <input type="text" name="school" placeholder="School">
-    <br>
-    <br>
-    <select name="grade">
-        <option value="none">Current Grade in School:</option>
-        <option value="grade1">Freshman</option>
-        <option value="grade2">Sophomore</option>
-        <option value="grade3">Junior</option>
-        <option value="grade4">Senior</option>
-    </select>
-    <br>
-    <br>
-    <button type="submit" name="submit">Submit</button>
-</form>
+<div id = "container">
+    <h1>Create your profile</h1>
+
+    <div class = "field">
+        <mat-form-field  style="width:30vw" appearance="standard">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="ex: Jane Doe">
+        </mat-form-field>
+    </div>
+
+    <div class = "field">
+        <mat-form-field  style="width:30vw" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="ex: example@email.com">
+        </mat-form-field>
+    </div>
+
+    <div class = "field">
+        <mat-form-field  style="width:30vw" appearance="standard">
+            <mat-label>Date of birth</mat-label>
+            <input matInput placeholder="mm/dd/yyyy">
+        </mat-form-field>
+    </div>
+
+    <div class = "field">
+        <mat-form-field style="width:30vw" appearance="standard">
+            <mat-label>School</mat-label>
+            <input matInput placeholder="ex: Davis High School">
+        </mat-form-field>
+    </div>
+
+    <div class = "field">
+        <mat-form-field style="width:30vw">
+            <mat-label>Current Grade in School</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let grade of grades" [value]="grade">
+                    {{grade}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="button">
+        <button mat-raised-button color="primary">Next</button>
+    </div>
+
+</div>

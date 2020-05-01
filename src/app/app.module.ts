@@ -19,6 +19,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatSelectModule } from "@angular/material/select";
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -54,7 +55,8 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
     MatCheckboxModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
