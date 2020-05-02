@@ -1,47 +1,65 @@
-<div id = "container">
-    <h1>Create your profile</h1>
+<div id="container">
+    <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+    </button>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Create your profile</ng-template>
 
-    <div class = "field">
-        <mat-form-field  style="width:30vw" appearance="standard">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="ex: Jane Doe">
-        </mat-form-field>
-    </div>
+                <mat-form-field style="width:30vw" appearance="standard">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Firstname Lastname" formControlName="firstCtrl" required>
+                </mat-form-field>
 
-    <div class = "field">
-        <mat-form-field  style="width:30vw" appearance="standard">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="ex: example@email.com">
-        </mat-form-field>
-    </div>
+                <mat-form-field style="width:30vw" appearance="standard">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="example@email.com" formControlName="firstCtrl" required>
+                </mat-form-field>
 
-    <div class = "field">
-        <mat-form-field  style="width:30vw" appearance="standard">
-            <mat-label>Date of birth</mat-label>
-            <input matInput placeholder="mm/dd/yyyy">
-        </mat-form-field>
-    </div>
+                <mat-form-field style="width:30vw" appearance="standard">
+                    <mat-label>School</mat-label>
+                    <input matInput placeholder="ex: Davis High School" formControlName="firstCtrl" required>
+                </mat-form-field>
 
-    <div class = "field">
-        <mat-form-field style="width:30vw" appearance="standard">
-            <mat-label>School</mat-label>
-            <input matInput placeholder="ex: Davis High School">
-        </mat-form-field>
-    </div>
+                <mat-form-field style="width:30vw">
+                    <mat-label>Current Grade in School</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let grade of grades" [value]="grade">
+                            {{grade}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
 
-    <div class = "field">
-        <mat-form-field style="width:30vw">
-            <mat-label>Current Grade in School</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let grade of grades" [value]="grade">
-                    {{grade}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
 
-    <div class="button">
-        <button mat-raised-button color="primary">Next</button>
-    </div>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Choose your subjects</ng-template>
+                <mat-form-field class="example-chip-list">
+                    <mat-chip-list #chipList aria-label="Subject selection">
+                        <mat-chip *ngFor="let subject of subjects" [selectable]="selectable" [removable]="removable"
+                            (removed)="remove(subject)">
+                            {{fruit.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Type your subject name..." [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+                <!-- Add a list of subjects here to choose from. 
+                Only those that match will be added to the chip list. -->
 
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button>Continue to home page -></button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
 </div>

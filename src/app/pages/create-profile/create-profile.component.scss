@@ -6,8 +6,14 @@
     align-items: center;
 }
 
-.field{
-    padding-top:10px;
-    padding-bottom:10px;
+.mat-stepper-horizontal {
+    margin-top: 8px;
 }
 
+.mat-form-field {
+    margin-top: 16px;
+}
+
+.example-chip-list {
+    width: 100%;
+}

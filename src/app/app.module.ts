@@ -56,7 +56,7 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
     MatFormFieldModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
