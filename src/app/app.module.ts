@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { MatStepperModule } from "@angular/material/stepper";
+import { MatChipsModule } from "@angular/material/chips";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from "@angular/forms";
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -57,6 +60,11 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
     MatSnackBarModule,
     MatProgressBarModule,
     MatSelectModule,
+    MatStepperModule,
+    MatChipsModule,
+    FormBuilder,
+    FormGroup,
+    Validators
   ],
   providers: [],
   bootstrap: [AppComponent]
