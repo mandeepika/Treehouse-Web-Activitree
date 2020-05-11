@@ -1,9 +1,8 @@
 <div style="padding-top: 32px">
     <div fxFlex="5%"></div>
     <div fxFlex="90%" fxLayout="row wrap" fxLayoutGap="32px grid" fxLayoutAlign="space-evenly">
-        <div *ngFor="let game of games | async"
-             fxFlex="0 1 auto">
-            <mat-card  style="width: 256px">
+        <div *ngFor="let game of games | async">
+            <mat-card style="width: 256px">
                 <mat-card-title>{{game.title}}</mat-card-title>
                 <mat-card-content>{{game.description}}</mat-card-content>
                 <mat-card-actions>
