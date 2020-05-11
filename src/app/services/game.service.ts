@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Game } from '../models/game';
 import { Observable } from 'rxjs';
+import "firebase/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,6 @@ export class GameService {
   }
 
   delete(game: Game): void {
-    console.log(game);
-    
     this.collection.doc(game.id).delete();
   }
 }
