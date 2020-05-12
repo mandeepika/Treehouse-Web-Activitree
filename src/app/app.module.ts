@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MatStepperModule } from "@angular/material/stepper";
-import { MatChipsModule } from "@angular/material/chips";
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormsModule } from "@angular/forms";
+import { MatChipsModule } from "@angular/material/chips"
+//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +31,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -62,9 +63,11 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
     MatSelectModule,
     MatStepperModule,
     MatChipsModule,
-    FormBuilder,
-    FormGroup,
-    Validators
+    MatAutocompleteModule,
+    ReactiveFormsModule
+    // FormBuilder,
+    // FormGroup,
+    // Validators
   ],
   providers: [],
   bootstrap: [AppComponent]

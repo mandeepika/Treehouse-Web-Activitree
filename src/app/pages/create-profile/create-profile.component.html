@@ -1,10 +1,10 @@
 <div id="container">
-    <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
         {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-    </button>
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    </button> -->
+    <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
         <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
+            <form [formGroup]="firstFormGroup" fxLayout="column" style="padding-top:50px">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
                 <mat-form-field style="width:30vw" appearance="standard">
@@ -32,32 +32,35 @@
                 </mat-form-field>
 
                 <div>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
+        <mat-step>
+            <form style="padding-top:50px">
                 <ng-template matStepLabel>Choose your subjects</ng-template>
                 <mat-form-field class="example-chip-list">
                     <mat-chip-list #chipList aria-label="Subject selection">
                         <mat-chip *ngFor="let subject of subjects" [selectable]="selectable" [removable]="removable"
                             (removed)="remove(subject)">
-                            {{fruit.name}}
+                            {{subject}}
                             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                         </mat-chip>
-                        <input placeholder="Type your subject name..." [matChipInputFor]="chipList"
-                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        <input placeholder="New subject..." #subjectInput [formControl]="subjectCtrl" [matAutocomplete]="auto"
+                            [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                             (matChipInputTokenEnd)="add($event)">
                     </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                        <mat-option *ngFor="let subject of filteredSubjects | async" [value]="subject">
+                            {{subject}}
+                        </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
-                <!-- Add a list of subjects here to choose from. 
-                Only those that match will be added to the chip list. -->
 
-                <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button>Continue to home page -></button>
+                <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center" >
+                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" mat-button>Continue to home page -></button>
                 </div>
             </form>
         </mat-step>
