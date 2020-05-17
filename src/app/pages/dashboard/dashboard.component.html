@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<div fxFill fxFlexAlign="start">
+    <div fxFlex="20" id="userProfile">
+        <p>{{firebaseUser.displayName}}</p>
+        <p>{{firebaseUser.email}}</p>
+        <p>{{user.highSchool}}</p>
+        <p>{{user.grade}}</p>
+        <p>{{user.subjects}}</p>
+    </div>
+    <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
+        <div fxFlex="50" id="continueFromPrev">
+            <p>User continues from previous progress here</p>
+        </div>
+        <div fxFlex="50" id="recs">
+            <p>User's recommendations here</p>
+        </div>
+    </div>
+    <div fxFlex="20" id="otherRelatedTopics">
+        <p>Users other related topics go here</p>
+    </div>
+</div>
