@@ -28,6 +28,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GamesComponent } from './pages/games/games.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GamesComponent } from './pages/games/games.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    GamesComponent
+    GamesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
