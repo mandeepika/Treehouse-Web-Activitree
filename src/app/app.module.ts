@@ -23,15 +23,16 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatSelectModule } from "@angular/material/select";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    DashboardComponent,
     GamesComponent,
     CreateProfileComponent
   ],
@@ -65,9 +67,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatChipsModule,
     MatAutocompleteModule,
     ReactiveFormsModule
-    // FormBuilder,
-    // FormGroup,
-    // Validators
   ],
   providers: [],
   bootstrap: [AppComponent]
