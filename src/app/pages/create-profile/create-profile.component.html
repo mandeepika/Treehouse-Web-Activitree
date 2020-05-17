@@ -55,7 +55,9 @@
 
                 <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center">
                     <button mat-raised-button mat-button matStepperPrevious>Back</button>
-                    <button mat-raised-button mat-button color="primary" (click)="submitSubjects()">Continue to home page -></button>
+                    <button mat-raised-button mat-button color="primary" 
+                            (click)="submitSubjects()"
+                            routerLink="/dashboard">Continue to home page -></button>
                 </div>
             </div>
         </mat-step>
