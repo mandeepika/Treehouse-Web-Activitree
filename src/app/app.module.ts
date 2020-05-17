@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FormsModule } from "@angular/forms";
+import { MatStepperModule } from "@angular/material/stepper";
+import { MatChipsModule } from "@angular/material/chips"
+//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +22,8 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatSelectModule } from "@angular/material/select";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -26,6 +31,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { GamesComponent } from './pages/games/games.component';
+import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +42,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    GamesComponent,
+    CreateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     MatCheckboxModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
