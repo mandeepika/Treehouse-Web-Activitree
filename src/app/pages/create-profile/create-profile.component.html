@@ -1,7 +1,7 @@
 <div id="container">
     <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup" fxLayout="column" style="padding-top:50px" (ngSubmit)="submitProfile()">
+        <mat-step [stepControl]="profileForm">
+            <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="submitProfile()">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
                 <mat-form-field style="width:30vw" appearance="standard">
@@ -33,7 +33,7 @@
         </mat-step>
 
         <mat-step>
-            <form style="padding-top:50px">
+            <div style="padding-top:50px">
                 <ng-template matStepLabel>Choose your subjects</ng-template>
                 <mat-form-field class="example-chip-list">
                     <mat-chip-list #chipList aria-label="Subject selection">
@@ -54,10 +54,10 @@
                 </mat-form-field>
 
                 <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center">
-                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" mat-button>Continue to home page -></button>
+                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button mat-button color="primary" (click)="submitSubjects()">Continue to home page -></button>
                 </div>
-            </form>
+            </div>
         </mat-step>
     </mat-horizontal-stepper>
 </div>

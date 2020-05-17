@@ -6,6 +6,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-profile',
@@ -15,7 +16,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class CreateProfileComponent implements OnInit {
 
   grades = [9, 10, 11, 12];
-  firstFormGroup: FormGroup;
+  profileForm: FormGroup;
   secondFormGroup: FormGroup;
 
   visible = true;
@@ -31,37 +32,49 @@ export class CreateProfileComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private formBuilder: FormBuilder,
-              public auth: AngularFireAuth) {
+    public auth: AngularFireAuth,
+    private service: UserService) {
     this.filteredSubjects = this.subjectCtrl.valueChanges.pipe(
       startWith(null),
       map((subject: string | null) => subject ? this._filter(subject) : this.allSubjects.slice()));
   }
 
   ngOnInit(): void {
-    this.firstFormGroup = this.formBuilder.group({
-      name: [, Validators.required],
+    this.profileForm = this.formBuilder.group({
+      name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       highSchool: ['', Validators.required],
       grade: ['', Validators.required]
     });
-    
+
     this.auth.user.subscribe(user => {
-      this.firstFormGroup.patchValue({
+      this.profileForm.patchValue({
         name: user.displayName,
         email: user.email
       })
     })
-
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
   }
 
   submitProfile(): void {
-    this.auth.user.subscribe(user => user.updateProfile({
-      displayName: this.firstFormGroup.value.name
-    }))
-    
+    this.auth.user.subscribe(user => {
+      user.updateProfile({
+        displayName: this.profileForm.value.name
+      });
+      this.service.set({
+        id: user.uid,
+        grade: this.profileForm.value.grade,
+        highSchool: this.profileForm.value.highSchool
+      });
+    })
+  }
+
+  submitSubjects(): void {
+    this.auth.user.subscribe(user => {
+      this.service.update({
+        id: user.uid,
+        subjects: this.subjects
+      });
+    })
   }
 
   add(event: MatChipInputEvent): void {
