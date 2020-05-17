@@ -1,10 +1,11 @@
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-create-profile',
@@ -13,18 +14,10 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class CreateProfileComponent implements OnInit {
 
-  grades = [9,10,11,12];
+  grades = [9, 10, 11, 12];
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  
-  ngOnInit(): void {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-  }
+
   visible = true;
   selectable = true;
   removable = true;
@@ -32,15 +25,43 @@ export class CreateProfileComponent implements OnInit {
   subjectCtrl = new FormControl();
   filteredSubjects: Observable<string[]>;
   subjects: string[] = [];
-  allSubjects: string[] = ['Calculus', 'Pre-Algebra', 'Geometry', 'Biology', 'Chemistry','Physics'];
+  allSubjects: string[] = ['Calculus', 'Pre-Algebra', 'Geometry', 'Biology', 'Chemistry', 'Physics'];
 
   @ViewChild('subjectInput') subjectInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              public auth: AngularFireAuth) {
     this.filteredSubjects = this.subjectCtrl.valueChanges.pipe(
-        startWith(null),
-        map((subject: string | null) => subject ? this._filter(subject) : this.allSubjects.slice()));
+      startWith(null),
+      map((subject: string | null) => subject ? this._filter(subject) : this.allSubjects.slice()));
+  }
+
+  ngOnInit(): void {
+    this.firstFormGroup = this.formBuilder.group({
+      name: [, Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      highSchool: ['', Validators.required],
+      grade: ['', Validators.required]
+    });
+    
+    this.auth.user.subscribe(user => {
+      this.firstFormGroup.patchValue({
+        name: user.displayName,
+        email: user.email
+      })
+    })
+
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+  }
+
+  submitProfile(): void {
+    this.auth.user.subscribe(user => user.updateProfile({
+      displayName: this.firstFormGroup.value.name
+    }))
+    
   }
 
   add(event: MatChipInputEvent): void {
@@ -79,5 +100,5 @@ export class CreateProfileComponent implements OnInit {
 
     return this.allSubjects.filter(subject => subject.toLowerCase().indexOf(filterValue) === 0);
   }
- 
+
 }
