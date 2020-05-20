@@ -5,7 +5,7 @@
 </head>
 
 <div fxFill fxFlexAlign="start">
-    <div fxFlex="20" id="userProfile">
+    <div  fxFlex="20" id="userProfile">
         <p>This is the user profile div</p>
     </div>
     <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
@@ -16,7 +16,7 @@
           <p>User's recommendations here</p>
             <div fxLayout="row">
             
-            <mat-card class="example-card">
+            <mat-card fxFlex="45" class="example-card">
                 <mat-card-header>
                 <mat-card-title>Recommend games</mat-card-title>
                 </mat-card-header>
@@ -30,7 +30,7 @@
                 </mat-card-actions>
               </mat-card>
               
-              <mat-card class="example-card">
+              <mat-card fxFlex="45" class="example-card">
                 <mat-card-header>
                 <mat-card-title>Recommend games</mat-card-title>
                 </mat-card-header>
@@ -43,9 +43,37 @@
                   <button mat-button>Play</button>
                 </mat-card-actions>
               </mat-card>
-
-            </div>
-              
+            </div>   
+            <div fxLayout="row">
+            
+              <mat-card fxFlex="45" class="example-card">
+                  <mat-card-header>
+                  <mat-card-title>Recommend games</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                      some contentes/pics here
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>Play</button>
+                  </mat-card-actions>
+                </mat-card>
+                
+                <mat-card fxFlex="45" class="example-card">
+                  <mat-card-header>
+                  <mat-card-title>Recommend games</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                      some contentes/pics here
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>Play</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div> 
         </div>
     </div>
     <div fxFlex="20" id="otherRelatedTopics">
