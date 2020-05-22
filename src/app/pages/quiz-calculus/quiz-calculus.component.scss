@@ -1,0 +1,108 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    /*font-family: 'Franklin Gothic Medium';
+    font-size: 20px;*/
+}
+
+:root {
+    --hue-neutral: 150;
+    --hue-wrong: 0;
+    --hue-correct: 200;
+}
+
+.heading {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    padding: 5%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-style: italic;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+body {
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 100%, 30%);
+    padding: 5%;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+}
+
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px rgb(109, 17, 17);
+    margin: auto;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px;
+    margin: 15px 5px;
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 50%);
+    background-color: hsl(var(--hue), 100%, 90%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: rgba(109, 17, 17);
+    outline: none;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+}
+
+.btn:hover {
+    border-color: white;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
