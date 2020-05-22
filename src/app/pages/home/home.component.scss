@@ -1,0 +1,21 @@
+.pagesection{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: lightslategray;
+}
+
+
+*{
+    margin: 5px;
+    overflow-y: hidden;
+}
+
+.example-card {
+    //border: 2px solid #7B68EE;
+    //box-shadow: 10px 5px 5px blue;
+    background-color: white;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 2em 2em;
+    max-width: 300px;
+  }
+  
