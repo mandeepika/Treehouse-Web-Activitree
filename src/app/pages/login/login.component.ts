@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
 
   login(signIn: (fireAuth: AngularFireAuth) => Promise<auth.UserCredential>): void {
     signIn(this.fireAuth).then(() =>
+      // TODO: Determine whether it is the first time to login
       this.router.navigate(['../dashboard'], { relativeTo: this.route })
     ).catch(err =>
       this.showMessage(err)
