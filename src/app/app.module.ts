@@ -33,7 +33,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 
 @NgModule({
