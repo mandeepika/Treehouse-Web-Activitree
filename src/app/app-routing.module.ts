@@ -9,6 +9,7 @@ import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MemorygameComponent } from './pages/memorygame/memorygame.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,8 +18,14 @@ const routes: Routes = [
   { path: 'register/continue', component: CreateProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'games', component: GamesComponent},
-  { path: 'games/quiz-calculus', component: QuizCalculusComponent }
+  {
+    path: 'games',
+    children: [
+      { path: '', component: GamesComponent },
+      { path: 'quiz-calculus', component: QuizCalculusComponent },
+      { path: 'memory-game', component: MemorygameComponent }
+    ]
+  }
 ];
 
 @NgModule({
