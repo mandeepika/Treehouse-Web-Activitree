@@ -1,20 +1,52 @@
-#userProfile{
-    border: 5px solid green;
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+#start {
+    margin: 0;
+    background-color: rgb(231, 231, 231);
 }
 
-#continueFromPrev{
-    border: 5px solid red;
+#userProfile {
+    //border: 5px solid #7B68EE;
+    //box-shadow: 10px 5px 5px rgb(27, 105, 165);
+    background-color: white;
+    border-radius: 2em 2em;
+    font-family: "Fredoka One", cursive;
 }
 
-#recs{
-    border: 5px solid yellow;
+#continueFromPrev {
+    // border: 5px solid #7B68EE;
+    //box-shadow: 10px 5px 5px rgb(27, 105, 165);
+    background-color: white;
+    border-radius: 2em 2em;
+    font-family: "Fredoka One", cursive;
 }
 
-#otherRelatedTopics{
-    border: 5px solid blue;
+#recs {
+    /*  border: 5px solid #7B68EE; */
+    //box-shadow: 10px 5px 5px rgb(27, 105, 165);
+    background-color: white;
+    border-radius: 2em 2em;
+    font-family: "Fredoka One", cursive;
 }
 
-*{
+#otherRelatedTopics {
+    /*border: 5px solid #7B68EE;*/
+    //box-shadow: 10px 5px 5px rgb(27, 105, 165);
+    background-color: white;
+    border-radius: 2em 2em;
+    font-family: "Fredoka One", cursive;
+}
+
+* {
     margin: 5px;
     overflow-y: hidden;
+}
+
+.example-card {
+    //border: 2px solid #7B68EE;
+    //box-shadow: 10px 5px 5px blue;
+    background-color: white;
+    font-family: "Fredoka One", cursive;
+    border-radius: 2em 2em;
+    max-width: 300px;
 }
