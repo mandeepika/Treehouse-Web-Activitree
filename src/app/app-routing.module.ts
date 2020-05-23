@@ -8,12 +8,14 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'register/continue', component:CreateProfileComponent },
+  { path: 'register/continue', component: CreateProfileComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'games', component: GamesComponent},
   { path: 'games/quiz-calculus', component: QuizCalculusComponent }

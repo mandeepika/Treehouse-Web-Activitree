@@ -1,44 +1,39 @@
 <div id="container">
-    <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-    </button> -->
     <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup" fxLayout="column" style="padding-top:50px">
+        <mat-step [stepControl]="profileForm">
+            <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="submitProfile()">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
                 <mat-form-field style="width:30vw" appearance="standard">
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="Firstname Lastname" formControlName="firstCtrl" required>
+                    <input matInput placeholder="Firstname Lastname" formControlName="name">
                 </mat-form-field>
 
                 <mat-form-field style="width:30vw" appearance="standard">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="example@email.com" formControlName="firstCtrl" required>
+                    <input matInput placeholder="example@email.com" formControlName="email">
                 </mat-form-field>
 
                 <mat-form-field style="width:30vw" appearance="standard">
                     <mat-label>School</mat-label>
-                    <input matInput placeholder="ex: Davis High School" formControlName="firstCtrl" required>
+                    <input matInput placeholder="ex: Davis High School" formControlName="highSchool">
                 </mat-form-field>
 
                 <mat-form-field style="width:30vw">
                     <mat-label>Current Grade in School</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="grade">
                         <mat-option *ngFor="let grade of grades" [value]="grade">
                             {{grade}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
 
-                <div>
-                    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
-                </div>
+                <button mat-raised-button color="primary" matStepperNext type="submit">Next</button>
             </form>
         </mat-step>
 
         <mat-step>
-            <form style="padding-top:50px">
+            <div style="padding-top:50px">
                 <ng-template matStepLabel>Choose your subjects</ng-template>
                 <mat-form-field class="example-chip-list">
                     <mat-chip-list #chipList aria-label="Subject selection">
@@ -47,9 +42,9 @@
                             {{subject}}
                             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                         </mat-chip>
-                        <input placeholder="New subject..." #subjectInput [formControl]="subjectCtrl" [matAutocomplete]="auto"
-                            [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                            (matChipInputTokenEnd)="add($event)">
+                        <input placeholder="New subject..." #subjectInput [formControl]="subjectCtrl"
+                            [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
                     </mat-chip-list>
                     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
                         <mat-option *ngFor="let subject of filteredSubjects | async" [value]="subject">
@@ -58,11 +53,13 @@
                     </mat-autocomplete>
                 </mat-form-field>
 
-                <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center" >
-                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" mat-button>Continue to home page -></button>
+                <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button mat-button color="primary" 
+                            (click)="submitSubjects()"
+                            routerLink="/dashboard">Continue to home page -></button>
                 </div>
-            </form>
+            </div>
         </mat-step>
     </mat-horizontal-stepper>
 </div>
