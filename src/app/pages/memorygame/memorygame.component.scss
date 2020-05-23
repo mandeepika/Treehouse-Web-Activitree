@@ -1,18 +1,15 @@
-*
-{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-img
-{
+img {
     width: 100%;
     height: 10%;
 }
 
-#container
-{
+#container {
     width: 960px;
     /* height: 500px; */
     margin: 0px auto;
@@ -20,8 +17,7 @@ img
     /* background-color: white; */
 }
 
-#text
-{
+#text {
     width: 460px;
     height: 600px;
     float: right;
@@ -29,8 +25,7 @@ img
     background-color: rgba(0, 136, 255, 0.1);
 }
 
-#memory-game
-{
+#memory-game {
     width: 500px;
     height: 550px;
     display: flex;
@@ -43,69 +38,53 @@ img
 
 /* NOTE: STYLE THE TEXT AND THE CARDS INTO COLUMNS LIKE IN THE TUTORIAL */
 
-@media screen and (max-width:959px)
-{
-    #container
-    {
+@media screen and (max-width: 959px) {
+    #container {
         width: 100%;
     }
-    #memory-game
-    {
+    #memory-game {
         width: 45%;
         height: 100%;
     }
-    #text
-    {
+    #text {
         width: 55%;
         float: right;
     }
-    img
-    {
+    img {
         width: 100%;
     }
-    .memory-card
-    {
+    .memory-card {
         width: 75%;
         height: 75%;
     }
 }
 
-
-@media screen and (max-width:720px)
-{
-    #container
-    {
+@media screen and (max-width: 720px) {
+    #container {
         width: 100%;
     }
-    #memory-game
-    {
+    #memory-game {
         width: 100%;
     }
-    #text
-    {
+    #text {
         width: 100%;
     }
-    img
-    {
+    img {
         width: 100%;
     }
-    .memory-card
-    {
+    .memory-card {
         width: 75%;
         height: 75%;
     }
 }
 
-@media screen and (max-width:320px)
-{
-    #container
-    {
-        width:320px;
+@media screen and (max-width: 320px) {
+    #container {
+        width: 320px;
     }
 }
 
-h1
-{
+h1 {
     color: white;
     padding: 10px;
     text-align: center;
@@ -113,8 +92,7 @@ h1
     float: right;
 }
 
-h3
-{
+h3 {
     color: rgb(4, 175, 67);
     text-align: right;
     position: absolute;
@@ -126,8 +104,7 @@ h3
     left: 180px;  */
 }
 
-h4
-{
+h4 {
     color: white;
     width: 500px;
     position: relative;
@@ -143,15 +120,13 @@ h4
     left: 700px;
 } */
 
-body
-{
+body {
     height: 100vh; /* vh stands for viewport height*/
     display: flex;
-    background-color: #1ED6F5;
+    background-color: #1ed6f5;
     font-family: "Comic Sans MS", cursive, sans-serif;
     justify-content: center;
 }
-
 
 /* .memory-game
 {
@@ -165,10 +140,9 @@ body
     bottom: 270px;
 } */
 
-.memory-card
-{
-    width: calc(25% - 20px);    /* 25% - 10px   or   15% - 10px */    
-    height: calc(33.33% - 40px);   /* 33.33% - 10px   or   20% - 10px */
+.memory-card {
+    width: calc(25% - 20px); /* 25% - 10px   or   15% - 10px */
+    height: calc(33.33% - 40px); /* 33.33% - 10px   or   20% - 10px */
     margin: 5px;
     position: relative;
     transform: scale(1);
@@ -176,21 +150,18 @@ body
     transition: transform 0.5s;
 }
 
-.memory-card:active
-{
-    transform: scale(.97);
-    transition: transform .2s;
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
 }
 
-.memory-card.flip
-{
+.memory-card.flip {
     transform: rotateY(180deg);
 }
 
 .front-face,
-.back-face
-{
-    width: 100%;  /* 100% */
+.back-face {
+    width: 100%; /* 100% */
     height: 100%; /* 100% */
     padding: 10px;
     position: absolute;
@@ -199,8 +170,7 @@ body
     backface-visibility: hidden;
 }
 
-.front-face
-{
+.front-face {
     transform: rotateY(180deg);
 }
 
