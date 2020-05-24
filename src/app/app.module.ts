@@ -33,6 +33,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
+import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
     ProfileComponent,
     DashboardComponent,
     GamesComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    QuizCalculusComponent
   ],
   imports: [
     BrowserModule,
