@@ -1,0 +1,22 @@
+<div id="container">
+    <mat-card id="card">
+        <mat-card-title>Sign out</mat-card-title>
+
+        <div class="vertical-spacer"></div>
+
+        <div *ngIf="busy">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            <div class="vertical-spacer"></div>
+        </div>
+
+        <mat-card-content>
+            <div *ngIf="busy; else loggedOut">
+                Logging you out...
+            </div>
+
+            <ng-template #loggedOut>
+                You are logged out. 
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</div>

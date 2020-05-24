@@ -11,6 +11,7 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MemorygameComponent } from './pages/memorygame/memorygame.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -18,6 +19,7 @@ const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToDashboard) },
+  { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'register/continue', component: CreateProfileComponent },
   { path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin) },
