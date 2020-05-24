@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fireAuth: AngularFireAuth,
+    private service: UserService,
     private snackBar: MatSnackBar,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   loginWithEmailAndPassword(): void {
     if (this.email && this.password) {
@@ -46,9 +45,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(signIn: (fireAuth: AngularFireAuth) => Promise<auth.UserCredential>): void {
-    signIn(this.fireAuth).then(() =>
-      // TODO: Determine whether it is the first time to login
-      this.router.navigate(['../dashboard'], { relativeTo: this.route })
+    signIn(this.fireAuth).then(userCredential =>
+      this.service.get(userCredential.user.uid).subscribe(user =>
+        this.router.navigate([user ? '/dashboard' : '/register/continue'])
+      )
     ).catch(err =>
       this.showMessage(err)
     );
