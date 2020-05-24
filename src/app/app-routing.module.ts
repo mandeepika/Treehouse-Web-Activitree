@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
-  { path: 'register/continue', component: CreateProfileComponent },
+  { path: 'register/continue', component: CreateProfileComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'profile', component: ProfileComponent },
   {
