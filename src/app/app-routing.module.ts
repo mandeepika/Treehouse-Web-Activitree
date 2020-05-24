@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'register/continue', component: CreateProfileComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'profile', component: ProfileComponent },
   {
     path: 'games',
