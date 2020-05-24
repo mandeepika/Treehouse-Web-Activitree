@@ -24,6 +24,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatSelectModule } from "@angular/material/select";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatMenuModule } from "@angular/material/menu";
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -34,6 +35,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.compo
     DashboardComponent,
     GamesComponent,
     CreateProfileComponent,
-    QuizCalculusComponent
+    QuizCalculusComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.compo
     MatStepperModule,
     MatChipsModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
