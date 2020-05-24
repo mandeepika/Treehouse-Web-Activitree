@@ -52,7 +52,7 @@ export class QuizCalculusComponent implements OnInit, AfterViewInit {
     }
 
     function resetState() {
-      clearStatusClass(document.body)
+      clearStatusClass(document.getElementById("wrapper"))
       nextButton.classList.add('hide')
       while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
@@ -62,7 +62,7 @@ export class QuizCalculusComponent implements OnInit, AfterViewInit {
     function selectAnswer(e) {
       const selectedButton = e.target
       const correct = selectedButton.dataset.correct
-      setStatusClass(document.body, correct)
+      setStatusClass(document.getElementById("wrapper"), correct)
       Array.from(answerButtonsElement.children).forEach((button: HTMLButtonElement) => {
         setStatusClass(button, button.dataset.correct)
       })

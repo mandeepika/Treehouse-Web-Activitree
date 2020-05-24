@@ -6,7 +6,7 @@
     font-size: 20px;*/
 }
 
-:root {
+#wrapper {
     --hue-neutral: 150;
     --hue-wrong: 0;
     --hue-correct: 200;
@@ -30,7 +30,7 @@ p {
     color: white;
 }
 
-body {
+#wrapper {
     --hue: var(--hue-neutral);
     background-color: hsl(var(--hue), 100%, 30%);
     padding: 5%;
@@ -44,11 +44,11 @@ body {
     font-size: 20px;
 }
 
-body.correct {
+#wrapper.correct {
     --hue: var(--hue-correct);
 }
 
-body.wrong {
+#wrapper.wrong {
     --hue: var(--hue-wrong);
 }
 
