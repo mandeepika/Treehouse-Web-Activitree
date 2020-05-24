@@ -1,7 +1,7 @@
 <div id="container">
     <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
         <mat-step [stepControl]="profileForm">
-            <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="submitProfile()">
+            <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="updateName()">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
                 <mat-form-field style="width:30vw" appearance="standard">
@@ -56,7 +56,7 @@
                 <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center">
                     <button mat-raised-button mat-button matStepperPrevious>Back</button>
                     <button mat-raised-button mat-button color="primary" 
-                            (click)="submitSubjects()"
+                            (click)="submit()"
                             routerLink="/dashboard">Continue to home page -></button>
                 </div>
             </div>

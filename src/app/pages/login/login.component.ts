@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   login(signIn: (fireAuth: AngularFireAuth) => Promise<auth.UserCredential>): void {
     signIn(this.fireAuth).then(userCredential =>
-      this.service.get(userCredential.user.uid).subscribe(user =>
+      this.service.get(userCredential.user.uid).pipe(first()).subscribe(user =>
         this.router.navigate([user ? '/dashboard' : '/register/continue'])
       )
     ).catch(err =>

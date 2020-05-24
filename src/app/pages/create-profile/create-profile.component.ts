@@ -55,26 +55,23 @@ export class CreateProfileComponent implements OnInit {
     })
   }
 
-  submitProfile(): void {
-    this.auth.user.subscribe(user => {
+  updateName(): void {
+    this.auth.user.subscribe(user =>
       user.updateProfile({
         displayName: this.profileForm.value.name
-      });
+      })
+    )
+  }
+
+  submit(): void {
+    this.auth.user.subscribe(user =>
       this.service.set({
         id: user.uid,
         grade: this.profileForm.value.grade,
-        highSchool: this.profileForm.value.highSchool
-      });
-    })
-  }
-
-  submitSubjects(): void {
-    this.auth.user.subscribe(user => {
-      this.service.update({
-        id: user.uid,
+        highSchool: this.profileForm.value.highSchool,
         subjects: this.subjects
-      });
-    })
+      })
+    );
   }
 
   add(event: MatChipInputEvent): void {
