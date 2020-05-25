@@ -14,6 +14,13 @@
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
 }
+
+#avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+
 #continueFromPrev {
     // border: 5px solid #7B68EE;
     box-shadow: 1px 1px 6px rgb(60,0,200);

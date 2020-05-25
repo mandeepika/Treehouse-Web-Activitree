@@ -1,9 +1,10 @@
 <div fxFill fxFlexAlign="start" id="start">
-    <div fxFlex="20" id="userProfile">
-        <p>{{firebaseUser?.displayName}}</p>
+    <div fxFlex="20" id="userProfile" fxLayout="column" fxLayoutAlign="start center">
+        <img id="avatar" [src]="firebaseUser?.photoURL">
+        <h3>{{firebaseUser?.displayName}}</h3>
         <p>{{firebaseUser?.email}}</p>
         <p>{{user?.highSchool}}</p>
-        <p>{{user?.grade}}</p>
+        <p>Grade {{user?.grade}}</p>
         <p>{{user?.subjects}}</p>
     </div>
     <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
