@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
-    <button mat-button><mat-icon>stars</mat-icon><span style="font-size: 20px"> Activitree Edu</span></button>
-  
+    <button mat-button routerLink="/dashboard"><mat-icon>stars</mat-icon><span style="font-size: 20px"> Activitree Edu</span></button>
+    <button mat-button routerLink="/games"><span style="font-size: 17px; font-weight: 100;">Games</span></button>
+    <button mat-button><span style="font-size: 17px; font-weight: 100;">Leaderboard</span></button>
+    <button mat-button><span style="font-size: 17px; font-weight: 100;">Contact</span></button>
     <span class="spacer"></span>
   
     <span *ngIf="auth.user | async as user; else notLoggedIn">
