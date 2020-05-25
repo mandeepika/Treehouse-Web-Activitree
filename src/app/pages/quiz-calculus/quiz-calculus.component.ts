@@ -108,12 +108,12 @@ export class QuizCalculusComponent implements OnInit, AfterViewInit {
         ]
       },
       {
-        question: 'crack',
+        question: 'What rhymes with crack?',
         answers: [
           { text: 'hack', correct: true },
-          { text: 'smack', correct: false },
-          { text: 'black', correct: false },
-          { text: 'tack', correct: false }
+          { text: 'soap', correct: false },
+          { text: 'blue', correct: false },
+          { text: 'tick', correct: false }
         ]
       },
       {
