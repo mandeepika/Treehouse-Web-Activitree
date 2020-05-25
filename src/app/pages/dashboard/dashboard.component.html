@@ -9,73 +9,78 @@
     </div>
     <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
         <div fxFlex="50" id="continueFromPrev">
-            <p>User continues from previous progress here</p>
+            <p>No progress to show. Begin a module today!</p>
         </div>
         <div fxFlex="50" id="recs">
             <p>User's recommendations here</p>
             <div fxLayout="row">
 
-                <mat-card fxFlex="45" class="example-card">
+                <mat-card fxFlex="40" class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Recommend games</mat-card-title>
+                        <mat-card-title>Game1</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
                         <p>
-                            some contentes/pics here
+                            some content/pics here
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Play</button>
+                        <button mat-button color="primary" routerLink="quiz-calculus">Play</button>
                     </mat-card-actions>
                 </mat-card>
 
-                <mat-card fxFlex="45" class="example-card">
+                <mat-card fxFlex="40" class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Recommend games</mat-card-title>
+                        <mat-card-title>Game2</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
                         <p>
-                            some contentes/pics here
+                            some content/pics here
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Play</button>
+                        <button mat-button color="primary">Play</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
             <div fxLayout="row">
 
-                <mat-card fxFlex="45" class="example-card">
+                <mat-card fxFlex="40" class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Recommend games</mat-card-title>
+                        <mat-card-title>Game3</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
                         <p>
-                            some contentes/pics here
+                            some content/pics here
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Play</button>
+                        <button mat-button color="primary">Play</button>
                     </mat-card-actions>
                 </mat-card>
 
-                <mat-card fxFlex="45" class="example-card">
+                <mat-card fxFlex="40" class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Recommend games</mat-card-title>
+                        <mat-card-title>Game4</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
                         <p>
-                            some contentes/pics here
+                            some content/pics here
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Play</button>
+                        <button mat-button color="primary">Play</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
         </div>
     </div>
-    <div fxFlex="20" id="otherRelatedTopics">
-        <p>Users other related topics go here</p>
+    <div fxFlex="20" fxLayout="column" id="otherRelatedTopics">
+        <h1>Tasks</h1>
+        <mat-checkbox color="primary">Complete quiz</mat-checkbox>
+        <mat-checkbox color="primary">Complete calculus module</mat-checkbox>
+        <mat-checkbox color="primary">Do math homework</mat-checkbox>
+        <mat-checkbox color="primary">Do english homework</mat-checkbox>
+        <button mat-button color="primary">Add task</button>
     </div>
 </div>
