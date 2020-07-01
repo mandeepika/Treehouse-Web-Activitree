@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LogoutComponent implements OnInit {
 
-  busy: boolean = true;
+  busy = true;
 
   constructor(private auth: AngularFireAuth) { }
 

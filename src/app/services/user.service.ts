@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import "firebase/firestore";
+import 'firebase/firestore';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
@@ -24,7 +24,7 @@ export class UserService {
     delete user.id;
     doc.set(user);
   }
-  
+
   update(user: User): void {
     const doc = this.collection.doc<User>(user.id);
     delete user.id;

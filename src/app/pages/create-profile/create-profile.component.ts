@@ -32,8 +32,8 @@ export class CreateProfileComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private formBuilder: FormBuilder,
-    public auth: AngularFireAuth,
-    private service: UserService) {
+              public auth: AngularFireAuth,
+              private service: UserService) {
     this.filteredSubjects = this.subjectCtrl.valueChanges.pipe(
       startWith(null),
       map((subject: string | null) => subject ? this._filter(subject) : this.allSubjects.slice()));
@@ -51,8 +51,8 @@ export class CreateProfileComponent implements OnInit {
       this.profileForm.patchValue({
         name: user.displayName,
         email: user.email
-      })
-    })
+      });
+    });
   }
 
   updateName(): void {
@@ -60,7 +60,7 @@ export class CreateProfileComponent implements OnInit {
       user.updateProfile({
         displayName: this.profileForm.value.name
       })
-    )
+    );
   }
 
   submit(): void {

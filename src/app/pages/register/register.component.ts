@@ -13,11 +13,11 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   passwordConfirm: string;
-  busy: boolean = false;
-  verificationEmailSent: boolean = false;
+  busy = false;
+  verificationEmailSent = false;
 
   constructor(
-    private auth: AngularFireAuth, 
+    private auth: AngularFireAuth,
     private snackBar: MatSnackBar
   ) { }
 
@@ -31,26 +31,24 @@ export class RegisterComponent implements OnInit {
         .then(userCredential => {
           userCredential.user.updateProfile({
             displayName: userCredential.user.email,
-            photoURL: "https://www.gravatar.com/avatar/?d=mp" 
+            photoURL: 'https://www.gravatar.com/avatar/?d=mp'
           });
-          
+
           userCredential.user.sendEmailVerification({
             url: window.location.href + '/continue'
           }).then(() => {
             this.busy = false;
-            this.verificationEmailSent = true
+            this.verificationEmailSent = true;
           });
         }
       ).catch(err => {
         this.showMessage(err);
         this.busy = false;
       });
-    } 
-    else if (fields.find(field => field.untouched)) {
-      this.showMessage("Please fill out all the fields");
-    }
-    else {
-      this.showMessage("Please fix the error(s) as indicated");
+    } else if (fields.find(field => field.untouched)) {
+      this.showMessage('Please fill out all the fields');
+    } else {
+      this.showMessage('Please fix the error(s) as indicated');
     }
   }
 
