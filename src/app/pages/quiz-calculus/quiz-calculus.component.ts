@@ -90,93 +90,423 @@ export class QuizCalculusComponent implements OnInit, AfterViewInit {
 
     const questions = [
       {
-        question: 'Did you know diabetes develops due to a problem with the pancreas?',
+        question: 'Which among the following mammal flies?',
         answers: [
-          { text: 'Yes', correct: true },
-          { text: 'Ooh', correct: true },
-          { text: 'Ahh', correct: true },
-          { text: 'No', correct: true }
+          {
+            text: 'Black panther',
+            correct: false
+          },
+          {
+            text: 'Ostrich',
+            correct: false
+          },
+          {
+            text: 'Leopard',
+            correct: false
+          },
+          {
+            text: 'Bat',
+            correct: true
+          }
         ]
       },
       {
-        question: 'What is the hottest planet in the solar system?',
+        question: 'Which part of the human brain is the regulating center for swallowing and vomiting?',
         answers: [
-          { text: 'Mars', correct: false },
-          { text: 'Saturn', correct: false },
-          { text: 'Venus', correct: true },
-          { text: 'Mercury', correct: false }
+          {
+            text: 'Cerebellum',
+            correct: false
+          },
+          {
+            text: 'Cerebrum',
+            correct: false
+          },
+          {
+            text: 'Medulla oblongata',
+            correct: true
+          },
+          {
+            text: 'Pons',
+            correct: false
+          }
         ]
       },
       {
-        question: 'What rhymes with crack?',
+        question: 'Helicobacter pylori infection causes \u2026\u2026',
         answers: [
-          { text: 'hack', correct: true },
-          { text: 'soap', correct: false },
-          { text: 'blue', correct: false },
-          { text: 'tick', correct: false }
+          {
+            text: 'Lung cancer',
+            correct: false
+          },
+          {
+            text: 'Brain tumor',
+            correct: false
+          },
+          {
+            text: 'Breast cancer',
+            correct: false
+          },
+          {
+            text: 'Stomach cancer',
+            correct: true
+          }
         ]
       },
       {
-        question: 'Sound travels faster in air than in water.',
+        question: 'Which one of the following is the disease, which vaccine is yet to discover?',
         answers: [
-          { text: 'Hmmmm', correct: false },
-          { text: 'False', correct: true },
-          { text: 'True', correct: false },
-          { text: 'Really?', correct: false }
+          {
+            text: 'Tetanus',
+            correct: false
+          },
+          {
+            text: 'Malaria',
+            correct: true
+          },
+          {
+            text: 'Measles',
+            correct: false
+          },
+          {
+            text: 'Mumps',
+            correct: false
+          }
         ]
       },
       {
-        question: 'How long does a human red blood cell survive?',
+        question: 'The biological process used in preparing the wine from grains is similar to the preparation of \u2026',
         answers: [
-          { text: '120 seconds', correct: false },
-          { text: '60 days', correct: false },
-          { text: '60 minutes', correct: false },
-          { text: '120 days', correct: true }
+          {
+            text: 'Curd from the milk',
+            correct: true
+          },
+          {
+            text: 'Cream from the milk',
+            correct: false
+          },
+          {
+            text: 'Quinine from the cinchona',
+            correct: false
+          },
+          {
+            text: 'Penicillin from the penicillium',
+            correct: false
+          }
         ]
       },
       {
-        question: 'How many hearts does an octopus have?',
+        question: 'In reference to cell, find the incorrect statement:',
         answers: [
-          { text: '2', correct: false },
-          { text: '8', correct: false },
-          { text: '3', correct: true },
-          { text: '5', correct: false }
+          {
+            text: 'Shape and size of cells are interrelated to specific function',
+            correct: false
+          },
+          {
+            text: 'Some cells can change their shapes',
+            correct: false
+          },
+          {
+            text: 'Each cell has its own ability to perform',
+            correct: false
+          },
+          {
+            text: 'Same type of cells are present in all body tissues',
+            correct: true
+          }
         ]
       },
       {
-        question: 'What is 2 + 2?',
+        question: 'Consider the following statements:',
         answers: [
-          { text: '4', correct: true },
-          { text: '2', correct: false },
-          { text: '22', correct: false },
-          { text: '<3', correct: false }
+          {
+            text: 'Only 1',
+            correct: false
+          },
+          {
+            text: 'Only 2',
+            correct: true
+          },
+          {
+            text: 'Both',
+            correct: false
+          },
+          {
+            text: 'Neither 1 nor 2',
+            correct: false
+          }
         ]
       },
       {
-        question: 'All palindromes with an even number of digits are divisible by:',
+        question: 'The place where gas exchange occurs is known as \u2026',
         answers: [
-          { text: '5', correct: false },
-          { text: '17', correct: false },
-          { text: '3', correct: false },
-          { text: '11', correct: true }
+          {
+            text: 'Lung',
+            correct: true
+          },
+          {
+            text: 'Nasal cavities',
+            correct: false
+          },
+          {
+            text: 'Pharynx',
+            correct: false
+          },
+          {
+            text: 'Larynx',
+            correct: false
+          }
         ]
       },
       {
-        question: 'It is _________ my dudes.',
+        question: 'Consider the following statements:',
         answers: [
-          { text: 'Sunday', correct: false },
-          { text: 'Wednesday', correct: true },
-          { text: 'Tuesday', correct: false },
-          { text: 'Friday', correct: false }
+          {
+            text: 'Only 1',
+            correct: false
+          },
+          {
+            text: 'Only 2',
+            correct: false
+          },
+          {
+            text: 'Both',
+            correct: true
+          },
+          {
+            text: 'Neither 1 nor 2',
+            correct: false
+          }
         ]
       },
       {
-        question: 'Cows go:',
+        question: 'The function of Occuli Orbicularis is \u2026\u2026',
         answers: [
-          { text: 'woo', correct: false },
-          { text: 'ooo', correct: false },
-          { text: 'moo', correct: true },
-          { text: 'coo', correct: false }
+          {
+            text: 'Raises the eyebrows',
+            correct: false
+          },
+          {
+            text: 'Closes the eyelids',
+            correct: true
+          },
+          {
+            text: 'Closes the lips',
+            correct: false
+          },
+          {
+            text: 'Raises, rotates, or draws back the shoulders',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'The deficiency of \u2026\u2026\u2026\u2026\u2026 causes osteomalacia.',
+        answers: [
+          {
+            text: 'Vitamin C',
+            correct: false
+          },
+          {
+            text: 'Vitamin D',
+            correct: true
+          },
+          {
+            text: 'Vitamin E',
+            correct: false
+          },
+          {
+            text: 'Vitamin K',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Amnesia is \u2026',
+        answers: [
+          {
+            text: 'Loss of sight',
+            correct: false
+          },
+          {
+            text: 'Loss of memory',
+            correct: true
+          },
+          {
+            text: 'Loss of hair',
+            correct: false
+          },
+          {
+            text: 'Loss of listening capacity',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Which among the following is the largest living mammal?',
+        answers: [
+          {
+            text: 'Whale',
+            correct: true
+          },
+          {
+            text: 'Elephant',
+            correct: false
+          },
+          {
+            text: 'Giraffe',
+            correct: false
+          },
+          {
+            text: 'Mammoth',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Which among the following is the center of first brain bank in India?',
+        answers: [
+          {
+            text: 'Delhi',
+            correct: false
+          },
+          {
+            text: 'Bengaluru',
+            correct: true
+          },
+          {
+            text: 'Chennai',
+            correct: false
+          },
+          {
+            text: 'Mumbai',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'In respect to brain consider the following statements:',
+        answers: [
+          {
+            text: 'Only 1',
+            correct: false
+          },
+          {
+            text: 'Only 2',
+            correct: false
+          },
+          {
+            text: 'Both',
+            correct: true
+          },
+          {
+            text: 'Neither 1 nor 2',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Which among the following correctly defines the lotic ecosystem?',
+        answers: [
+          {
+            text: 'The ecosystem that is located in a desert region',
+            correct: false
+          },
+          {
+            text: 'The ecosystem that is located in a mountain region',
+            correct: false
+          },
+          {
+            text: 'The ecosystem that is located in a flowing river',
+            correct: true
+          },
+          {
+            text: 'the ecosystem that is located in a pond.',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Which among the following makes food poisonous?',
+        answers: [
+          {
+            text: 'Clostridium Botulinum',
+            correct: true
+          },
+          {
+            text: 'Acidobacteria',
+            correct: false
+          },
+          {
+            text: 'Chloroflexi',
+            correct: false
+          },
+          {
+            text: 'Chrysiogenetes',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Consider the following statements:',
+        answers: [
+          {
+            text: 'Only 1',
+            correct: false
+          },
+          {
+            text: 'Only 2',
+            correct: false
+          },
+          {
+            text: 'Both',
+            correct: true
+          },
+          {
+            text: 'Neither 1 nor 2',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'Which among the following structures of plant is responsible for transpiration?',
+        answers: [
+          {
+            text: 'Xylem',
+            correct: false
+          },
+          {
+            text: 'Root',
+            correct: false
+          },
+          {
+            text: 'Stomata',
+            correct: true
+          },
+          {
+            text: 'Bark',
+            correct: false
+          }
+        ]
+      },
+      {
+        question: 'The deficiency of \u2026\u2026\u2026\u2026\u2026 causes anemia.',
+        answers: [
+          {
+            text: 'Vitamin B5',
+            correct: false
+          },
+          {
+            text: 'Vitamin B6',
+            correct: true
+          },
+          {
+            text: 'Vitamin B7',
+            correct: false
+          },
+          {
+            text: 'Vitamin B9',
+            correct: false
+          }
         ]
       }
     ];
