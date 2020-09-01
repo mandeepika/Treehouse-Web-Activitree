@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForumComponent implements OnInit {
 
+  typesOfCategory: string[] = ['Popular', 'Science', 'Math', 'Cool Posts', 'Blah', 'Blah'];
+
   constructor() { }
 
   ngOnInit(): void {

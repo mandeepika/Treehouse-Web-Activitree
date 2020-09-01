@@ -26,6 +26,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -77,6 +80,8 @@ import { ForumComponent } from './pages/forum/forum.component';
     ReactiveFormsModule,
     MatMenuModule,
     MatSidenavModule,
+    MatListModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
