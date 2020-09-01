@@ -25,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -36,6 +37,7 @@ import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { ForumComponent } from './pages/forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     GamesComponent,
     CreateProfileComponent,
     QuizCalculusComponent,
-    LogoutComponent
+    LogoutComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
