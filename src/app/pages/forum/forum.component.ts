@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Posts } from './posts'
 
 @Component({
   selector: 'app-forum',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForumComponent implements OnInit {
 
-  typesOfCategory: string[] = ['Popular', 'Science', 'Math', 'Cool Posts', 'Blah', 'Blah'];
+  typesOfCategory: string[] = ['Popular', 'New', 'Freshmen', 'College Life', 'Random', 'Classes', 'Questions'];
+
+  Posts = Posts;
 
   constructor() { }
 

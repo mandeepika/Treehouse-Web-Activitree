@@ -17,40 +17,53 @@
     </mat-sidenav>
 
     <mat-sidenav opened mode="side" class="side-bar" position="end">
-        <h2>Notifications</h2>
+        <h2>Find your College</h2>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Search Colleges</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input type="text" matInput >
+          </mat-form-field>
+        </form>
     </mat-sidenav>
     
     <div class="main">
 
-        <h1 style="text-align: center;">Welcome to the Activitree Forum!</h1>
+        <h1 style="text-align: center; padding-top: 2%;">Welcome to the Activitree Forum!</h1>
 
-        <div>
+        <div class="createPost">
             <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
                 <mat-icon>add</mat-icon>
             </button>
-            <h3 style="display:inline-block; padding:10px;">New Post</h3>
-        </div>
+            <h3 style="display:inline-block; padding:10px;">Create New Post</h3>
         
+        </div>
+          
+        
+        <div class="posts">
+        <h1>Explore</h1>
 
-          <h1>Posts You're Following</h1>
-        <mat-card class="example-card">
-            <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Example Post Title<mat-card-subtitle>Science</mat-card-subtitle></mat-card-title>
-            <mat-card-subtitle>Posted by example user 2 hours ago</mat-card-subtitle>
-            </mat-card-header>
-           
-            <mat-card-content>
-            <p>
-                Post contents. Esemi talodi liru enic: Rin lobas deb! Esisu saciege tisiti, eneris han iru wet sa cu odetel. Tu seretal iro xe osiesitac. Sor darapep ehototuc hute. Bedus re tecarid otoredap cadid carirap merut idanec tire gil. Net egoteweg siyine yevotet. Ariwedin ran te. Sodow rumepeq re nadav. Tet taseri arasam roca sepin pe. Iterid here delaho tuha na. Yilieg cesoyed mag tagedi kinot ceco.
-            </p>
-            </mat-card-content>
-            <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-            <button mat-button>COMMENT</button>
-            </mat-card-actions>
-        </mat-card>
+        <div *ngFor="let post of Posts">
+          <mat-card class="example-card">
+              <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ post.title }}<mat-card-subtitle>{{post.category}}</mat-card-subtitle></mat-card-title>
+              <mat-card-subtitle>Posted by {{ post.user }} {{ post.date }}</mat-card-subtitle>
+              </mat-card-header>
+            
+              <mat-card-content>
+              <p>
+                  {{ post.content }}
+              </p>
+              </mat-card-content>
+              <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+              <button mat-button>COMMENT</button>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+    </div>
     </div>
     
 </mat-sidenav-container>
