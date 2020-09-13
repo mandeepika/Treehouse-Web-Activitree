@@ -1,30 +1,13 @@
 
 <mat-sidenav-container class="example-container">
+  
     <mat-sidenav opened mode="side" class="side-bar">
-        <h2>Categories</h2>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <mat-label>Search Posts</mat-label>
-              <mat-icon matPrefix>search</mat-icon>
-              <input type="text" matInput >
-            </mat-form-field>
-          </form>
-        <mat-selection-list #categories [multiple]="false">
-            <mat-list-option *ngFor="let category of typesOfCategory" [value]="category">
-              {{category}}
-            </mat-list-option>
-          </mat-selection-list>
-    </mat-sidenav>
+      <app-left-side-bar></app-left-side-bar>
+    </mat-sidenav>  
+    
 
     <mat-sidenav opened mode="side" class="side-bar" position="end">
-        <h2>Find your College</h2>
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Search Colleges</mat-label>
-            <mat-icon matPrefix>search</mat-icon>
-            <input type="text" matInput >
-          </mat-form-field>
-        </form>
+        <app-right-side-bar></app-right-side-bar>
     </mat-sidenav>
     
     <div class="main">

@@ -8,7 +8,7 @@ import { Posts } from './posts'
 })
 export class ForumComponent implements OnInit {
 
-  typesOfCategory: string[] = ['Popular', 'New', 'Freshmen', 'College Life', 'Random', 'Classes', 'Questions'];
+  
 
   Posts = Posts;
 

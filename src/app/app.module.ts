@@ -41,6 +41,8 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ForumComponent } from './pages/forum/forum.component';
+import { LeftSideBarComponent } from './pages/forum/other-forum-components/left-side-bar/left-side-bar.component';
+import { RightSideBarComponent } from './pages/forum/other-forum-components/right-side-bar/right-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { ForumComponent } from './pages/forum/forum.component';
     CreateProfileComponent,
     QuizCalculusComponent,
     LogoutComponent,
-    ForumComponent
+    ForumComponent,
+    LeftSideBarComponent,
+    RightSideBarComponent
   ],
   imports: [
     BrowserModule,
