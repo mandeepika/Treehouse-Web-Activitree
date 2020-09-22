@@ -1,0 +1,92 @@
+<div id="main_workshop_container">
+  <h1>Recommended Workshops</h1>
+  <div class="carousel">
+    <div class="left_button_container">
+      <button mat-icon-button (click)="previousEvent()">
+        <mat-icon><</mat-icon>
+      </button>
+    </div>
+    <mat-card class="carousel_item">
+      <div class="carousel_image_container">
+        <img
+          class="carousel_img"
+          src="{{ carouselInfo[activeCarouselItem].picture }}"
+          alt="recommended workshop picture"
+        />
+      </div>
+      <mat-card-content class="carousel_info">
+        <mat-card-title>{{
+          carouselInfo[activeCarouselItem].eventName
+        }}</mat-card-title>
+        <mat-card-subtitle>Event Description:</mat-card-subtitle>
+        <p>{{ carouselInfo[activeCarouselItem].eventDescription }}</p>
+        <div class="carousel_info_date">
+          <h5>When:</h5>
+          <p>{{ carouselInfo[activeCarouselItem].eventDate }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <div class="right_button_container">
+      <button mat-icon-button (click)="nextEvent()">
+        <mat-icon>></mat-icon>
+      </button>
+    </div>
+  </div>
+  <h1>Upcoming Workshops</h1>
+  <h4>Click for more Info</h4>
+  <div class="upcoming_workshops_container">
+    <mat-card
+      *ngFor="let workshop of upcomingWorkshops"
+      (click)="togglePopUp(workshop)"
+      class="upcoming_workshop_card"
+    >
+      <img
+        mat-card-image
+        class="upcoming_workshop_image"
+        src="{{ workshop.picture }}"
+        alt="Upcoming Workshop Event Picture"
+      />
+      <mat-card-content>
+        <mat-card-title>{{ workshop.eventName }}</mat-card-title>
+        <mat-card-subtitle>{{ workshop.eventDate }}</mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+    <div *ngIf="open" class="popUp_container">
+      <div (click)="toggleOpen()" class="popUp_background_color"></div>
+      <div>
+        <mat-card class="popUp_Card">
+          <div class="popUp_img_container">
+            <img
+              class="popUp_img"
+              src="{{ currentWorkshopSelected.picture }}"
+              alt="Current select4ed workshop Picture"
+            />
+          </div>
+          <mat-card-content class="popUp_info">
+            <mat-card-title>{{
+              currentWorkshopSelected.eventName
+            }}</mat-card-title>
+            <mat-card-subtitle>{{
+              currentWorkshopSelected.eventDate
+            }}</mat-card-subtitle>
+            <mat-card-title>Event Description: </mat-card-title>
+            <p>{{ currentWorkshopSelected.eventDescription }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <h1>Past Workshops</h1>
+    <div class="past_workshops_container">
+      <div
+        *ngFor="let workshop of pastWorkshops"
+        class="past_workshops--img_container"
+      >
+        <img
+          class="past_workshop_image"
+          src="{{ workshop }}"
+          alt="Past Workshops"
+        />
+      </div>
+    </div>
+  </div>
+</div>

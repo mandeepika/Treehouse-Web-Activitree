@@ -36,6 +36,7 @@ import { GamesComponent } from './pages/games/games.component';
 import { CreateProfileComponent } from './pages/create-profile/create-profile.component';
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { WorkshopComponent } from './pages/workshop/workshop.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     GamesComponent,
     CreateProfileComponent,
     QuizCalculusComponent,
-    LogoutComponent
+    LogoutComponent,
+    WorkshopComponent
   ],
   imports: [
     BrowserModule,
