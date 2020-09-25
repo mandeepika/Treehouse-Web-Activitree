@@ -1,3 +1,15 @@
+.sectiontitle{
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.background{
+  background: rgba(125, 150, 252, 0.5);
+  padding: 5%;
+  padding-top: 0;
+}
+
 #main_workshop_container {
   margin: 0 9rem;
 }
@@ -129,6 +141,7 @@
 .popUp_img {
   max-height: 400px;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .popUp_info {

@@ -1,21 +1,22 @@
 <div fxFill fxFlexAlign="start" id="start">
-    <div fxFlex="20" id="userProfile" fxLayout="column" fxLayoutAlign="start center">
+    <div fxFlex="20" class="tile" id="userProfile" fxLayout="column" fxLayoutAlign="start center">
         <img id="avatar" [src]="firebaseUser?.photoURL">
-        <h3>{{firebaseUser?.displayName}}</h3>
+        <h2 class="heading">{{firebaseUser?.displayName}}</h2>
         <p>{{firebaseUser?.email}}</p>
         <p>{{user?.highSchool}}</p>
         <p>Grade {{user?.grade}}</p>
         <p>{{user?.subjects}}</p>
     </div>
     <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
-        <div fxFlex="50" id="continueFromPrev">
+        <div fxFlex="50" id="currentProgress" class="tile">
+            <h2 class="heading">Your Progress</h2>
             <p>No progress to show. Begin a module today!</p>
         </div>
-        <div fxFlex="50" id="recs">
-            <p>User's recommendations here</p>
+        <div fxFlex="50" id="recs" class="tile">
+            <h2 class="heading">Recommended Games</h2>
             <div fxLayout="row">
 
-                <mat-card fxFlex="40" class="example-card">
+                <mat-card fxFlex="30" class="example-card">
                     <mat-card-header>
                         <mat-card-title>Game1</mat-card-title>
                     </mat-card-header>
@@ -29,7 +30,7 @@
                     </mat-card-actions>
                 </mat-card>
 
-                <mat-card fxFlex="40" class="example-card">
+                <mat-card fxFlex="30" class="example-card">
                     <mat-card-header>
                         <mat-card-title>Game2</mat-card-title>
                     </mat-card-header>
@@ -45,7 +46,7 @@
             </div>
             <div fxLayout="row">
 
-                <mat-card fxFlex="40" class="example-card">
+                <mat-card fxFlex="30" class="example-card">
                     <mat-card-header>
                         <mat-card-title>Game3</mat-card-title>
                     </mat-card-header>
@@ -59,7 +60,7 @@
                     </mat-card-actions>
                 </mat-card>
 
-                <mat-card fxFlex="40" class="example-card">
+                <mat-card fxFlex="30" class="example-card">
                     <mat-card-header>
                         <mat-card-title>Game4</mat-card-title>
                     </mat-card-header>
@@ -75,12 +76,12 @@
             </div>
         </div>
     </div>
-    <div fxFlex="20" fxLayout="column" id="otherRelatedTopics">
-        <h3>Tasks</h3>
+    <div fxFlex="20" fxLayout="column" id="to-do" class="tile">
+        <h2 class="heading">To-Do</h2>
         <mat-checkbox color="primary">Complete quiz</mat-checkbox>
         <mat-checkbox color="primary">Complete calculus module</mat-checkbox>
         <mat-checkbox color="primary">Do math homework</mat-checkbox>
         <mat-checkbox color="primary">Do english homework</mat-checkbox>
-        <button mat-button color="primary">Add task</button>
+        <button mat-button color="primary">Add Task</button>
     </div>
 </div>
