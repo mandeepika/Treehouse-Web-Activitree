@@ -8,8 +8,7 @@ import { Posts } from './posts'
 })
 export class ForumComponent implements OnInit {
 
-  
-
+  isChecked = true;
   Posts = Posts;
 
   constructor() { }

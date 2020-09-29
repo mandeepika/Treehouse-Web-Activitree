@@ -28,7 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -43,6 +43,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { ForumComponent } from './pages/forum/forum.component';
 import { LeftSideBarComponent } from './pages/forum/other-forum-components/left-side-bar/left-side-bar.component';
 import { RightSideBarComponent } from './pages/forum/other-forum-components/right-side-bar/right-side-bar.component';
+import { PostComponent } from './pages/forum/other-forum-components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RightSideBarComponent } from './pages/forum/other-forum-components/righ
     LogoutComponent,
     ForumComponent,
     LeftSideBarComponent,
-    RightSideBarComponent
+    RightSideBarComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +88,7 @@ import { RightSideBarComponent } from './pages/forum/other-forum-components/righ
     MatSidenavModule,
     MatListModule,
     MatBadgeModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

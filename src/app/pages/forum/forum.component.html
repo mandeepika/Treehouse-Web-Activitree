@@ -18,33 +18,42 @@
             <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
                 <mat-icon>add</mat-icon>
             </button>
-            <h3 style="display:inline-block; padding:10px;">Create New Post</h3>
+            <h3>New Post</h3>
         
         </div>
           
         
         <div class="posts">
-        <h1>Explore</h1>
+          <div class="filter-bar">  
+            <h2 style="display:inline-block;">Explore</h2>
+            <a>Popular</a>
+            <a>New</a>
+            <a>Your School</a>
+          </div>
 
-        <div *ngFor="let post of Posts">
-          <mat-card class="example-card">
-              <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{ post.title }}<mat-card-subtitle>{{post.category}}</mat-card-subtitle></mat-card-title>
-              <mat-card-subtitle>Posted by {{ post.user }} {{ post.date }}</mat-card-subtitle>
-              </mat-card-header>
-            
-              <mat-card-content>
-              <p>
-                  {{ post.content }}
-              </p>
-              </mat-card-content>
-              <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-              <button mat-button>COMMENT</button>
-              </mat-card-actions>
-          </mat-card>
+        <div *ngFor="let post of Posts; index as postId">
+          
+            <mat-card class="example-card">
+                <a [title]="post.title" [routerLink]="['/forum', postId]">
+                  <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  
+                  <mat-card-title>{{ post.title }}</mat-card-title><mat-card-subtitle>{{post.category}}</mat-card-subtitle>
+                  <mat-card-subtitle>Posted by {{ post.user }} {{ post.date }}</mat-card-subtitle>
+                  </mat-card-header>
+                </a>
+              
+                <mat-card-content>
+                <p>
+                    {{ post.content }}
+                </p>
+                </mat-card-content>
+                <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+                <button mat-button>COMMENT</button>
+                </mat-card-actions>
+            </mat-card>
       </div>
     </div>
     </div>

@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MemorygameComponent } from './pages/memorygame/memorygame.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ForumComponent } from './pages/forum/forum.component';
+import { PostComponent } from './pages/forum/other-forum-components/post/post.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'logout', component: LogoutComponent },
   { path: 'forum', component: ForumComponent },
+  { path: 'forum/:postId', component: PostComponent },
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'register/continue', component: CreateProfileComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin) },

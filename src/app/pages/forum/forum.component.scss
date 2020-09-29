@@ -11,9 +11,6 @@
     padding: 2% 5%;
 }
 
-.example-form-field {
-    width: 100px;
-  }
 
 .example-card {
     max-width: 100%;
@@ -24,10 +21,22 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
 }
-.createPost{
+.createPost h3{
+    size: 100px;
+    display:inline-block; 
+    padding:10px;
+}
+.filter-bar{
     background-color: rgb(255, 255, 255);
-    padding: 1%
+    padding: 2% 2% 0% 2%;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
-.posts{
-    
+.filter-bar a{
+    padding-left: 5px;
+    padding-right: 5px;
 }
+a {
+    text-decoration: none;
+    color: rgb(46, 46, 46);
+  }
