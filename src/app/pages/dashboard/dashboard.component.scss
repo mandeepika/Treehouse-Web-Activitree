@@ -38,3 +38,40 @@
     margin: 10px;
     max-width: 300px;
 }
+
+.delete-icon{
+    color: red;
+}
+
+.delete-icon:hover{
+    opacity: 0.5;
+}
+
+.delete-button, .edit-button{
+    background: transparent;
+    border: none;
+}
+
+.edit-icon{
+    color: rgb(57, 75, 193);
+}
+
+.edit-icon:hover{
+    opacity: 0.5;
+}
+
+.right-align{
+    text-align: right;
+}
+
+tr{
+    padding: 5px;
+}
+
+td.right-align{
+    width: 10%;
+}
+
+.completed{
+    text-decoration: line-through;
+}

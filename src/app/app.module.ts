@@ -9,6 +9,7 @@ import { MatChipsModule } from '@angular/material/chips';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -37,6 +38,11 @@ import { CreateProfileComponent } from './pages/create-profile/create-profile.co
 import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { WorkshopComponent } from './pages/workshop/workshop.component';
+import { ConnectComponent } from './pages/connect/connect.component';
+
+// Service
+import { ItemService } from './services/item.service';
+
 
 @NgModule({
   declarations: [
@@ -51,13 +57,15 @@ import { WorkshopComponent } from './pages/workshop/workshop.component';
     CreateProfileComponent,
     QuizCalculusComponent,
     LogoutComponent,
-    WorkshopComponent
+    WorkshopComponent,
+    ConnectComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -76,7 +84,7 @@ import { WorkshopComponent } from './pages/workshop/workshop.component';
     ReactiveFormsModule,
     MatMenuModule,
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
