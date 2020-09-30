@@ -18,6 +18,6 @@ export const Posts = [
       user: 'Janet',
       date: "3 days ago",
       category: 'New Things',
-      content: ''
+      content: 'I love science!'
     }
   ];

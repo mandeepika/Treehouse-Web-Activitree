@@ -39,10 +39,6 @@ import { QuizCalculusComponent } from './pages/quiz-calculus/quiz-calculus.compo
 import { LogoutComponent } from './pages/logout/logout.component';
 import { WorkshopComponent } from './pages/workshop/workshop.component';
 import { ConnectComponent } from './pages/connect/connect.component';
-import { ForumpageComponent } from './pages/forumpage/forumpage.component';
-import { LeftSideBarComponent } from './pages/left-side-bar/left-side-bar.component';
-import { PostComponent } from './pages/post/post.component';
-import { RightSideBarComponent } from './pages/right-side-bar/right-side-bar.component';
 
 // Service
 import { ItemService } from './services/item.service';
@@ -63,10 +59,6 @@ import { ItemService } from './services/item.service';
     LogoutComponent,
     WorkshopComponent,
     ConnectComponent,
-    ForumpageComponent,
-    LeftSideBarComponent,
-    PostComponent,
-    RightSideBarComponent
   ],
   imports: [
     BrowserModule,
