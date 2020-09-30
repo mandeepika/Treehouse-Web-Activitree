@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav opened mode="side" class="side-bar">
+        <app-left-side-bar></app-left-side-bar>
+    </mat-sidenav>  
+    
+
+    <mat-sidenav opened mode="side" class="side-bar" position="end">
+        <app-right-side-bar></app-right-side-bar>
+    </mat-sidenav>
+
+
+    <div *ngIf="post" class="main">
+            
+            <h1>{{ post.title }}</h1>
+            <p>Posted by {{ post.user }} {{ post.date }}</p>
+            <p>{{post.category}}</p>
+            <p>{{post.content}}</p>
+    </div>
+</mat-sidenav-container>
+

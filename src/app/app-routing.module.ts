@@ -13,6 +13,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MemorygameComponent } from './pages/memorygame/memorygame.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { WorkshopComponent } from './pages/workshop/workshop.component';
+import { ConnectComponent } from './pages/connect/connect.component';
+import { ForumpageComponent } from './pages/forumpage/forumpage.component';
+import { PostComponent } from './pages/post/post.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -33,7 +36,9 @@ const routes: Routes = [
       { path: 'memory-game', component: MemorygameComponent }
     ]
   },
-  {path: 'workshop', component: WorkshopComponent}
+  {path: 'workshop', component: WorkshopComponent},
+  {path: 'connect', component: ConnectComponent},
+  {path: 'forum', component: ForumpageComponent},
 ];
 
 @NgModule({

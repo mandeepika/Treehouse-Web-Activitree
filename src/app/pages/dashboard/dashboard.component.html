@@ -7,7 +7,7 @@
         <p>Grade {{user?.grade}}</p>
         <p>{{user?.subjects}}</p>
     </div>
-    <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
+    <div fxFlex="55" fxLayout="column" fxLayoutAlign="center" >
         <div fxFlex="50" id="currentProgress" class="tile">
             <h2 class="heading">Your Progress</h2>
             <p>No progress to show. Begin a module today!</p>
@@ -76,12 +76,17 @@
             </div>
         </div>
     </div>
-    <div fxFlex="20" fxLayout="column" id="to-do" class="tile">
+    <div fxFlex="25" fxLayout="column" id="to-do" class="tile">
         <h2 class="heading">To-Do</h2>
-        <mat-checkbox color="primary">Complete quiz</mat-checkbox>
-        <mat-checkbox color="primary">Complete calculus module</mat-checkbox>
-        <mat-checkbox color="primary">Do math homework</mat-checkbox>
-        <mat-checkbox color="primary">Do english homework</mat-checkbox>
-        <button mat-button color="primary">Add Task</button>
+        <table>
+            <tr *ngFor="let todo of todos">
+                <td *ngIf="!todo.editing" [ngClass]="{ 'completed' : todo.done }"><mat-checkbox color="primary" [(ngModel)]="todo.done">{{todo.title}}</mat-checkbox></td>
+                <td *ngIf="todo.editing" (keyup.enter)="doneEditing(todo)"><mat-checkbox color="primary" [(ngModel)]="todo.done"><input type="text" class="editable" [(ngModel)]="todo.label"></mat-checkbox></td>
+                <td class="right-align"><button class="edit-button" (click)="editTask(todo)"><mat-icon class="edit-icon">edit</mat-icon></button></td>
+                <td class="right-align"><button class="delete-button" (click)="deleteTask(todo)"><mat-icon class="delete-icon">delete_outline</mat-icon></button></td>
+            </tr>
+        </table>
+        <input type="text" placeholder="Enter task..." #newTask>
+        <button mat-button color="primary" (click)="addTask(newTask.value); newTask.value=''">Add Task</button>
     </div>
 </div>
