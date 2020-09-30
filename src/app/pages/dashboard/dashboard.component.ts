@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       this.service.get(user.uid).subscribe(user => this.user = user);
     });
     this.itemservice.getItems().subscribe(items => {
-      //console.log(items);
+      console.log(items);
       this.todos = items;
     });
   }
@@ -49,20 +49,26 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteTask(task: Item){
-    task.editing = false;
+    this.doneEditing(task);
     //this.todos = this.todos.filter( t=> t.title !== task.title);
     this.itemservice.deleteItem(task);
   }
 
-  editTask(todo: Item){
+  editTask(event, todo: Item){
     todo.editing = true;
-    // this.itemToEdit = todo;
-    this.itemservice.updateItem(todo);
+    console.log('begin editing', todo.editing);
+    this.itemToEdit = todo;
+  }
+
+  updateTask(task: Item){
+    this.doneEditing(task);
+    this.itemservice.updateItem(task);
+    console.log('Editing?? ', task.editing);
   }
 
   doneEditing(todo: Item){
     todo.editing = false;
-    // this.itemToEdit = null;
+    this.itemToEdit = null;
   }
 
 }

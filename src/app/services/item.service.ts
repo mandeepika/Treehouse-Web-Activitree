@@ -42,6 +42,7 @@ export class ItemService {
    updateItem(item: Item){
     this.itemDoc = this.afs.doc(`todo-items/${item.id}`);
     this.itemDoc.update(item);
+    console.log(item.title);
    }
 }
 
