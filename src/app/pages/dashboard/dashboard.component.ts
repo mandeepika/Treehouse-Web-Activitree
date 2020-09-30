@@ -16,20 +16,13 @@ export class DashboardComponent implements OnInit {
   firebaseUser: firebase.User;
 
   todos: Item[];
+  itemToEdit: Item;
 
-//   // todo is an array of list items
-//   todos = [
-//     { 
-//     title: 'Buy milk', 
-//     done: false, 
-//     editing: false
-//   },
-//   { 
-//     title: 'Drink milk', 
-//     done: false, 
-//     editing: false
-//   },
-// ];
+  newTask: Item = {
+    title: '',
+    done: false,
+    editing: false
+  }
 
 // todoTitle: string;
 
@@ -48,25 +41,28 @@ export class DashboardComponent implements OnInit {
   }
 
   addTask(newTaskLabel){
-    var newTask = {
-      title: newTaskLabel,
-      done: false,
-      editing: false
+    if (newTaskLabel != ''){
+      this.itemservice.createItem(this.newTask);
+      console.log(this.newTask.title);
+      this.newTask.title = '';
     }
-    this.todos.push(newTask);
-    // refresh table here!!!
   }
 
-  deleteTask(task){
-    this.todos = this.todos.filter( t=> t.title !== task.title);
+  deleteTask(task: Item){
+    task.editing = false;
+    //this.todos = this.todos.filter( t=> t.title !== task.title);
+    this.itemservice.deleteItem(task);
   }
 
-  editTask(todo){
+  editTask(todo: Item){
     todo.editing = true;
+    // this.itemToEdit = todo;
+    this.itemservice.updateItem(todo);
   }
 
-  doneEditing(todo){
+  doneEditing(todo: Item){
     todo.editing = false;
+    // this.itemToEdit = null;
   }
 
 }
