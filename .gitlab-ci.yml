@@ -1,0 +1,15 @@
+image: node:latest
+
+stages:
+    - deploy
+
+before_script:
+    - npm ci
+
+firebase_deploy:
+    stage: deploy
+    only:
+        - master
+    script:
+        - npx ng build --prod
+        - npx firebase deploy --token "$FIREBASE_TOKEN" --project activitree-edu
