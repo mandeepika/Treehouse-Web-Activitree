@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
       this.service.get(user.uid).subscribe(user => this.user = user);
     });
     this.itemservice.getItems().subscribe(items => {
-      console.log(items);
       this.todos = items;
     });
   }
