@@ -1,3 +1,12 @@
 <div class="pagecontainer">
-    <p>Connect page coming soon!</p>
+    <h1>Let's learn together!</h1>
+    <h2>Here are some suggested connections based on your interests:</h2>
+    <table>
+        <tr *ngFor="let user of users">
+            <mat-card class="card">
+                <td>{{user.name}}</td>
+                <td class="connect-button"><button mat-raised-button color="primary">Connect</button></td>
+            </mat-card>
+        </tr>
+    </table>
 </div>

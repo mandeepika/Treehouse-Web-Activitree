@@ -36,7 +36,7 @@ const routes: Routes = [
     ]
   },
   {path: 'workshop', component: WorkshopComponent},
-  {path: 'connect', component: ConnectComponent},
+  {path: 'connect', component: ConnectComponent, ...canActivate(redirectUnauthorizedToLogin) },
 ];
 
 @NgModule({
