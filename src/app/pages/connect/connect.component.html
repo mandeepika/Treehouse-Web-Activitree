@@ -1,9 +1,10 @@
 <div class="pagecontainer">
     <h1>Let's learn together!</h1>
     <h2>Here are some suggested connections based on your interests:</h2>
+    <!-- <h3>{{currentUser.uid}}</h3> -->
     <table>
         <tr *ngFor="let user of users">
-            <mat-card class="card">
+            <mat-card fxLayoutAlign="space-between center" class="card">
                 <td>{{user.name}}</td>
                 <td class="connect-button"><button mat-raised-button color="primary">Connect</button></td>
             </mat-card>

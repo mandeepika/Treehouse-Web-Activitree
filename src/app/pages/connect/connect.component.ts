@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectService } from '../../services/connect.service';
 import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-connect',
@@ -9,13 +12,20 @@ import { User } from '../../models/user';
 })
 export class ConnectComponent implements OnInit {
 
-  constructor(private connectservice: ConnectService) { }
+  constructor(public auth: AngularFireAuth, private service: UserService, private connectservice: ConnectService) { }
   users: User[];
+  user: User;
+  currentUser: firebase.User;
+  //highSchool: string;
 
   ngOnInit(): void {
     this.connectservice.getUsers().subscribe(users => {
-      this.users = users;
-      console.log(this.users);
+      this.auth.user.subscribe(user => {
+        this.users = users.filter(x => x.id !== user.uid);
+        console.log(this.users, user.uid);
+        
+      });
     });
+    
   }
 }
