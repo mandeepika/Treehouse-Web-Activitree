@@ -3,4 +3,5 @@ export interface Item{
     title?: string;
     done?: boolean;
     editing?: boolean;
+    listnum: number;
   }

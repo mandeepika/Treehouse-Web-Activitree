@@ -17,14 +17,14 @@ export class DashboardComponent implements OnInit {
 
   todos: Item[];
   itemToEdit: Item;
+  priority: number;
 
   newTask: Item = {
     title: '',
     done: false,
-    editing: false
+    editing: false,
+    listnum: 0
   }
-
-// todoTitle: string;
 
 
   constructor(public auth: AngularFireAuth, private service: UserService, private itemservice: ItemService) { }
@@ -42,6 +42,17 @@ export class DashboardComponent implements OnInit {
 
   addTask(newTaskLabel){
     if (newTaskLabel != ''){
+      if (this.todos.length > 0){
+        console.log("greater than or equal to 1");
+        console.log(this.todos[this.todos.length-1].title);
+        var lastnum = this.todos[this.todos.length-1].listnum;
+        console.log(lastnum);
+        this.priority = lastnum + 1;
+      }
+      else{
+        this.priority = 1;
+      }
+      this.newTask.listnum = this.priority;
       this.itemservice.createItem(this.newTask);
       console.log(this.newTask.title);
       this.newTask.title = '';
@@ -50,7 +61,6 @@ export class DashboardComponent implements OnInit {
 
   deleteTask(task: Item){
     this.doneEditing(task);
-    //this.todos = this.todos.filter( t=> t.title !== task.title);
     this.itemservice.deleteItem(task);
   }
 
