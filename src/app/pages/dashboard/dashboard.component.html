@@ -81,12 +81,12 @@
         <table>
             <tr *ngFor="let todo of todos">
                 <td *ngIf="!todo.editing" [ngClass]="{ 'completed' : todo.done }"><mat-checkbox color="primary" [(ngModel)]="todo.done">{{todo.title}}</mat-checkbox></td>
-                <td *ngIf="todo.editing" (keyup.enter)="doneEditing(todo)"><mat-checkbox color="primary" [(ngModel)]="todo.done"><input type="text" class="editable" [(ngModel)]="todo.label"></mat-checkbox></td>
-                <td class="right-align"><button class="edit-button" (click)="editTask(todo)"><mat-icon class="edit-icon">edit</mat-icon></button></td>
+                <td *ngIf="todo.editing && itemToEdit.id==todo.id" (keyup.enter)="updateTask(todo)"><mat-checkbox color="primary" [(ngModel)]="todo.done"><input type="text" class="editable" [(ngModel)]="todo.title"></mat-checkbox></td>
+                <td class="right-align"><button class="edit-button" (click)="editTask($event,todo)"><mat-icon class="edit-icon">edit</mat-icon></button></td>
                 <td class="right-align"><button class="delete-button" (click)="deleteTask(todo)"><mat-icon class="delete-icon">delete_outline</mat-icon></button></td>
             </tr>
         </table>
-        <input type="text" placeholder="Enter task..." #newTask>
-        <button mat-button color="primary" (click)="addTask(newTask.value); newTask.value=''">Add Task</button>
+        <input type="text" placeholder="Enter task..." [(ngModel)]="newTask.title" name="title">
+        <button mat-button color="primary" (click)="addTask(newTask.title);">Add Task</button>
     </div>
 </div>

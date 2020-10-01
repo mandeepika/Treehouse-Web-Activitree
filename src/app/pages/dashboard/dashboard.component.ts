@@ -16,22 +16,15 @@ export class DashboardComponent implements OnInit {
   firebaseUser: firebase.User;
 
   todos: Item[];
+  itemToEdit: Item;
+  priority: number;
 
-//   // todo is an array of list items
-//   todos = [
-//     { 
-//     title: 'Buy milk', 
-//     done: false, 
-//     editing: false
-//   },
-//   { 
-//     title: 'Drink milk', 
-//     done: false, 
-//     editing: false
-//   },
-// ];
-
-// todoTitle: string;
+  newTask: Item = {
+    title: '',
+    done: false,
+    editing: false,
+    listnum: 0
+  }
 
 
   constructor(public auth: AngularFireAuth, private service: UserService, private itemservice: ItemService) { }
@@ -42,31 +35,50 @@ export class DashboardComponent implements OnInit {
       this.service.get(user.uid).subscribe(user => this.user = user);
     });
     this.itemservice.getItems().subscribe(items => {
-      //console.log(items);
+      console.log(items);
       this.todos = items;
     });
   }
 
   addTask(newTaskLabel){
-    var newTask = {
-      title: newTaskLabel,
-      done: false,
-      editing: false
+    if (newTaskLabel != ''){
+      if (this.todos.length > 0){
+        console.log("greater than or equal to 1");
+        console.log(this.todos[this.todos.length-1].title);
+        var lastnum = this.todos[this.todos.length-1].listnum;
+        console.log(lastnum);
+        this.priority = lastnum + 1;
+      }
+      else{
+        this.priority = 1;
+      }
+      this.newTask.listnum = this.priority;
+      this.itemservice.createItem(this.newTask);
+      console.log(this.newTask.title);
+      this.newTask.title = '';
     }
-    this.todos.push(newTask);
-    // refresh table here!!!
   }
 
-  deleteTask(task){
-    this.todos = this.todos.filter( t=> t.title !== task.title);
+  deleteTask(task: Item){
+    this.doneEditing(task);
+    this.itemservice.deleteItem(task);
   }
 
-  editTask(todo){
+  editTask(event, todo: Item){
     todo.editing = true;
+    console.log('begin editing', todo.editing);
+    this.itemToEdit = todo;
   }
 
-  doneEditing(todo){
+  updateTask(task: Item){
+    this.doneEditing(task);
+    this.itemservice.updateItem(task);
+    console.log('Editing?? ', task.editing);
+  }
+
+  doneEditing(todo: Item){
     todo.editing = false;
+    this.itemToEdit = null;
   }
 
 }
