@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Item } from '../models/item';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,13 @@ export class ItemService {
     //this.items = this.afs.collection('todo-items').valueChanges();
     this.itemsCollection = this.afs.collection('todo-items', ref => ref.orderBy('listnum', 'asc'));
 
-    this.items = this.itemsCollection.snapshotChanges().map(changes => {
+    this.items = this.itemsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Item;
         data.id = a.payload.doc.id;
         return data;
       })
-    });
+    }));
    }
 
    getItems(){

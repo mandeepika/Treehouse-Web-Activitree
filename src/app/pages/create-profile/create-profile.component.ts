@@ -66,6 +66,7 @@ export class CreateProfileComponent implements OnInit {
   submit(): void {
     this.auth.user.subscribe(user =>
       this.service.set({
+        name: this.profileForm.value.name,
         id: user.uid,
         grade: this.profileForm.value.grade,
         highSchool: this.profileForm.value.highSchool,
