@@ -37,6 +37,7 @@ const routes: Routes = [
     ]
   },
   {path: 'workshop', component: WorkshopComponent},
+  {path: 'curriculum', component: CurriculumComponent},
   {path: 'connect', component: ConnectComponent, ...canActivate(redirectUnauthorizedToLogin) },
 ];
 
