@@ -14,6 +14,7 @@ import { MemorygameComponent } from './pages/memorygame/memorygame.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { WorkshopComponent } from './pages/workshop/workshop.component';
 import { ConnectComponent } from './pages/connect/connect.component';
+import { CurriculumComponent } from './pages/curriculum/curriculum.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -36,6 +37,7 @@ const routes: Routes = [
     ]
   },
   {path: 'workshop', component: WorkshopComponent},
+  {path: 'curriculum', component: CurriculumComponent},
   {path: 'connect', component: ConnectComponent, ...canActivate(redirectUnauthorizedToLogin) },
 ];
 
