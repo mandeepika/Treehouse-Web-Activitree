@@ -42,6 +42,7 @@ import { ConnectComponent } from './pages/connect/connect.component';
 
 // Service
 import { ItemService } from './services/item.service';
+import { CurriculumComponent } from './pages/curriculum/curriculum.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { ItemService } from './services/item.service';
     LogoutComponent,
     WorkshopComponent,
     ConnectComponent,
+    CurriculumComponent,
   ],
   imports: [
     BrowserModule,
