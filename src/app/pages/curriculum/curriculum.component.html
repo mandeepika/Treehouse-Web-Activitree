@@ -1,7 +1,3 @@
-<!-- <head>
-  <link href="https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap" rel="stylesheet">
-</head> -->
-
 
 <mat-sidenav-container id="sidenavContainer">
   <mat-sidenav mode="side" #sidenav id="sidenav" opened>
@@ -19,6 +15,7 @@
 
   <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
     <div class="maincontent">
+      <!-- Content should be pulled from firebase collection depending on the subject selected -->
       <h1>Welcome to the Curriculum Page</h1>
       <h2>Use this page to access supplementary resources for classes! We have resources such as videos, notes, 
         and practice exams. You can save resources to the dashboard for future reference!</h2>
