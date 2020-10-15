@@ -15,8 +15,6 @@ export class ConnectService {
   userDoc: AngularFirestoreDocument<User>
   user: User;
   currentUser: firebase.User;
-  currentUserID: string;
-  myHighSchool: string;
 
   constructor(public auth: AngularFireAuth, private service: UserService, public afs: AngularFirestore) { 
       //var myHighSchool = firebase.auth().currentUser.highSchool

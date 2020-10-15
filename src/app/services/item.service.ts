@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Item } from '../models/item';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map, mergeMap } from "rxjs/operators";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
+//import { map, mergeMap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +16,8 @@ export class ItemService {
   itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>
   itemDoc: AngularFirestoreDocument<Item>
+  user: User;
+  currentUser: firebase.User;
 
   constructor(public afs: AngularFirestore) {
     //this.items = this.afs.collection('todo-items').valueChanges();
@@ -25,6 +31,13 @@ export class ItemService {
       })
     }));
    }
+
+  //  getUsers(): Observable<User[]>{
+  //   return this.auth.user.pipe(
+  //     mergeMap(user => this.service.get(user.uid)), 
+  //     mergeMap(user => this.afs.collection<User>('users',ref => ref.where('highSchool', '==', user.highSchool)).valueChanges({idField: 'id'}))
+  //   );
+  // }
 
    getItems(){
      return this.items;

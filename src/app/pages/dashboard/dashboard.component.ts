@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   priority: number;
 
   newTask: Item = {
+    id: '',
     title: '',
     done: false,
     editing: false,
@@ -42,16 +43,14 @@ export class DashboardComponent implements OnInit {
   addTask(newTaskLabel){
     if (newTaskLabel != ''){
       if (this.todos.length > 0){
-        console.log("greater than or equal to 1");
-        console.log(this.todos[this.todos.length-1].title);
         var lastnum = this.todos[this.todos.length-1].listnum;
-        console.log(lastnum);
         this.priority = lastnum + 1;
       }
       else{
         this.priority = 1;
       }
       this.newTask.listnum = this.priority;
+      //this.newTask.id = currentUser.uid
       this.itemservice.createItem(this.newTask);
       console.log(this.newTask.title);
       this.newTask.title = '';
