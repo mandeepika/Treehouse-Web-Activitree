@@ -13,6 +13,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -85,8 +89,14 @@ import { CurriculumComponent } from './pages/curriculum/curriculum.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatBadgeModule,
+    MatSlideToggleModule,
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

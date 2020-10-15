@@ -2,10 +2,18 @@
   <title> Curriculum Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap" rel="stylesheet">
 </head>
-<body style=background-color:lightblue>
+<body>
 
 <h2>Welcome to the Curriculum Page!</h2>
 <!--<p>The Curriculum pages provides resources and extra materials to help with classes!</p>-->
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+  <mat-sidenav-content>Main content</mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
+
 
 <div class="testmenu">
 <button mat-button [matMenuTriggerFor]="belowMenu1">Math</button>
