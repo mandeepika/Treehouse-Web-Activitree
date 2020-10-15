@@ -30,6 +30,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -93,6 +94,7 @@ import { CurriculumComponent } from './pages/curriculum/curriculum.component';
     MatListModule,
     MatBadgeModule,
     MatSlideToggleModule,
+    MatExpansionModule,
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

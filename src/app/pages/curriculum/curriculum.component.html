@@ -1,111 +1,44 @@
-<head>
+<!-- <head>
   <link href="https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap" rel="stylesheet">
-</head>
+</head> -->
 
-<mat-sidenav-container class="example-container">
-  
-  <mat-sidenav opened mode="side" class="side-bar">
-    <!-- <app-left-side-bar></app-left-side-bar> -->
-  </mat-sidenav>  
-  
 
-  <mat-sidenav opened mode="side" class="side-bar" position="end">
-      <!-- <app-right-side-bar></app-right-side-bar> -->
+<mat-sidenav-container id="sidenavContainer">
+  <mat-sidenav mode="side" #sidenav id="sidenav" opened>
+    <mat-list style="margin-left:10%;">
+      <ng-container *ngFor="let item of items">
+        <mat-list-item>{{item.name}}</mat-list-item>
+        <mat-list style="margin-left:20px;">
+          <div *ngFor="let subItem of item.subItems">
+            <mat-list-item>{{ subItem.name }}</mat-list-item>
+          </div>
+        </mat-list>
+      </ng-container>
+    </mat-list>
   </mat-sidenav>
-  
-  <div class="main">
 
-      <h1 style="text-align: center; padding-top: 2%;">Welcome to the Activitree Forum!</h1>
-
-      <div class="createPost">
-          <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-              <mat-icon>add</mat-icon>
-          </button>
-          <h3>New Post</h3>
-      </div>
-        
-      
-      <div class="posts">
-        <div class="filter-bar">  
-          <h2 style="display:inline-block;">Explore</h2>
-          <a>Popular</a>
-          <a>New</a>
-          <a>Your School</a>
-        </div>
-
-  </div>
-  </div>
-  
+  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
+    <div class="maincontent">
+      <h1>Welcome to the Curriculum Page</h1>
+      <h2>Use this page to access supplementary resources for classes! We have resources such as videos, notes, 
+        and practice exams. You can save resources to the dashboard for future reference!</h2>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-<h2>Welcome to the Curriculum Page!</h2>
-<!--<p>The Curriculum pages provides resources and extra materials to help with classes!</p>-->
-
-<!-- <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container> -->
-
-<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
-
-<!-- 
-<div class="testmenu">
-<button mat-button [matMenuTriggerFor]="belowMenu1">Math</button>
-<mat-menu #belowMenu1="matMenu" yPosition="below">
-  <button mat-menu-item>Calculus</button>
-  <button mat-menu-item>Precalculus</button>
-  <button mat-menu-item>Algebra</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu2">Science</button>
-<mat-menu #belowMenu2="matMenu" yPosition="below">
-  <button mat-menu-item>Biology</button>
-  <button mat-menu-item>Chemistry</button>
-  <button mat-menu-item>Physics</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu3">English</button>
-<mat-menu #belowMenu3="matMenu" yPosition="below">
-  <button mat-menu-item>AP Language</button>
-  <button mat-menu-item>AP Literature</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu4">History</button>
-<mat-menu #belowMenu4="matMenu" yPosition="below">
-  <button mat-menu-item>U.S. History</button>
-  <button mat-menu-item>World History</button>
-  <button mat-menu-item>U.S. Government</button>
-  <button mat-menu-item>Economics</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu5">Videos</button>
-<mat-menu #belowMenu5="matMenu" yPosition="below">
-  <button mat-menu-item>Math</button>
-  <button mat-menu-item>Science</button>
-  <button mat-menu-item>English</button>
-  <button mat-menu-item>History</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu6">Practice Exams</button>
-<mat-menu #belowMenu6="matMenu" yPosition="below">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-</div> -->
+<router-outlet></router-outlet>
 
 
-<div class="row">
+
+<!-- <div class="row">
   <div class="column">
     <h3><b>About</b></h3>
     <p>Students can use this Curriculum Page to access supplementary resources for classes that they are struggling with. We have resources such as supplemental videos, notes, and practice exams.</p>
     <img id="img1" src="http://clipart-library.com/images/ki8nK5peT.png" alt="Jungkook" style="width:50%">
 </div>
   <div class="column">
-    <!--<img src="http://clipart-library.com/images/Lcdkqxxc4.jpg" alt="BTS" style="width:100%"> -->
     <img src="http://clipart-library.com/images/8izngkLLT.gif" alt="BTS" style="width:100%">
 </div>
   <div class="column">
-     <!--<img src="http://clipart-library.com/data_images/297564.gif" alt="BTS" style="width:100%">-->
      <img src="http://clipart-library.com/data_images/297559.png" alt="BTS" style="width:100%">
   </div>
-</div>
+</div> -->

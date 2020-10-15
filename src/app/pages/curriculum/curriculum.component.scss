@@ -1,56 +1,42 @@
-* {
-    box-sizing: border-box;
-  }
+#sidenavContainer{
+  height: 100%;
+}
 
-/* Clearfix (clear floats) */
+mat-sidenav-container{
+  vertical-align: middle;
+}
+
+mat-sidenav {
+  width: 15%;
+  vertical-align: middle;
+}
+
+.maincontent{
+  margin: 5%;
+}
+
+.sub-item{
+  font-weight: normal;
+}
+
+h1{
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 40px;
+}
+
 h2{
-padding-top: 20px;
-text-align: center;
-font-family: 'Slabo 13px', serif;
-font-size: 25px;
-}
-h3{
-margin-top: 45px;
-padding-left: 25px;
-padding-right: 25px;
-}
-p{
-font-family: 'Slabo 13px', serif;
-padding-left: 25px;
-padding-right: 25px;
-}
-.column {
-float: left;
-width: 33.33%;
-padding: 5px;
+  font-weight: normal;
 }
 
-/* Clearfix (clear floats) */
-.row::after {
-content: "";
-clear: both;
-display: table;
-}
 
 .testmenu {
- /* margin-left: 350px;
-  padding-bottom: 57px; *'
- /* padding-top: 50px; */
  width: 41%;
  border: 3px solid darkblue;
  background-color: white;
  margin-left: 370px;
- /*background-color: #9966ff;*/
 }
 
-img {
-/*border: 5px solid darkblue;*/
-margin-top: 50px;
-}
-
-#img1{
-margin-left: 50px;
-}
 
 .example-container {
   position: absolute;
