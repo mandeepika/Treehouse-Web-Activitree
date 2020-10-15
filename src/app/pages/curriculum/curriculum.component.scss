@@ -15,9 +15,11 @@ mat-sidenav {
   margin: 5%;
 }
 
-.sub-item{
-  font-weight: normal;
+.main-item{
+  color: rgb(57, 75, 193);
+  font-weight: bolder;
 }
+
 
 h1{
   text-align: center;
@@ -30,19 +32,19 @@ h2{
 }
 
 
-.testmenu {
- width: 41%;
- border: 3px solid darkblue;
- background-color: white;
- margin-left: 370px;
-}
+// .testmenu {
+//  width: 41%;
+//  border: 3px solid darkblue;
+//  background-color: white;
+//  margin-left: 370px;
+// }
 
 
-.example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #eee;
-}
+// .example-container {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   background: #eee;
+// }

@@ -3,10 +3,10 @@
   <mat-sidenav mode="side" #sidenav id="sidenav" opened>
     <mat-list style="margin-left:10%;">
       <ng-container *ngFor="let item of items">
-        <mat-list-item>{{item.name}}</mat-list-item>
-        <mat-list style="margin-left:20px;">
+        <mat-list-item class="main-item">{{item.name}}</mat-list-item>
+        <mat-list style="margin-left:15px;">
           <div *ngFor="let subItem of item.subItems">
-            <mat-list-item>{{ subItem.name }}</mat-list-item>
+            <mat-list-item class="sub-item">{{ subItem.name }}</mat-list-item>
           </div>
         </mat-list>
       </ng-container>
