@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
       this.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(userCredential => {
           userCredential.user.updateProfile({
-            displayName: userCredential.user.email,
+            //displayName: userCredential.user.email,
             photoURL: 'https://www.gravatar.com/avatar/?d=mp'
           });
 

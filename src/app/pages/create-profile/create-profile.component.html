@@ -1,22 +1,22 @@
 <div id="container">
-    <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper fxFlex="80%">
         <mat-step [stepControl]="profileForm">
             <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="updateName()">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field style="width:30vw">
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="Firstname Lastname" formControlName="name">
+                    <input matInput placeholder="Firstname Lastname" formControlName="name" required>
                 </mat-form-field>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field style="width:30vw">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="example@email.com" formControlName="email">
+                    <input matInput placeholder="example@email.com" formControlName="email" required>
                 </mat-form-field>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field style="width:30vw">
                     <mat-label>School</mat-label>
-                    <input matInput placeholder="ex: Davis High School" formControlName="highSchool">
+                    <input matInput placeholder="ex: Davis High School" formControlName="highSchool" required>
                 </mat-form-field>
 
                 <mat-form-field style="width:30vw">
@@ -28,13 +28,13 @@
                     </mat-select>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" matStepperNext type="submit">Next</button>
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
             </form>
         </mat-step>
 
-        <mat-step>
+        <mat-step label="Choose your subjects">
             <div style="padding-top:50px">
-                <ng-template matStepLabel>Choose your subjects</ng-template>
+                <!-- <ng-template matStepLabel>Choose your subjects</ng-template> -->
                 <mat-form-field class="example-chip-list">
                     <mat-chip-list #chipList aria-label="Subject selection">
                         <mat-chip *ngFor="let subject of subjects" [selectable]="selectable" [removable]="removable"

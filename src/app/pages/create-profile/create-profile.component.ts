@@ -15,9 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateProfileComponent implements OnInit {
 
-  grades = [9, 10, 11, 12];
+  grades = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
   profileForm: FormGroup;
   secondFormGroup: FormGroup;
+  isLinear=false;
 
   visible = true;
   selectable = true;
