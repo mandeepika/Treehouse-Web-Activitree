@@ -25,11 +25,16 @@ export class CreateProfileComponent implements OnInit {
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   subjectCtrl = new FormControl();
+  interestCtrl = new FormControl();
   filteredSubjects: Observable<string[]>;
+  filteredInterests: Observable<string[]>;
   subjects: string[] = [];
+  interests: string[] = [];
   allSubjects: string[] = ['Calculus', 'Pre-Algebra', 'Geometry', 'Biology', 'Chemistry', 'Physics'];
+  allInterests: string[] = ['Reading', 'Writing', 'Basketball', 'Rugby', 'Coding', 'Music'];
 
   @ViewChild('subjectInput') subjectInput: ElementRef<HTMLInputElement>;
+  @ViewChild('interestInput') interestInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private formBuilder: FormBuilder,
@@ -38,6 +43,9 @@ export class CreateProfileComponent implements OnInit {
     this.filteredSubjects = this.subjectCtrl.valueChanges.pipe(
       startWith(null),
       map((subject: string | null) => subject ? this._filter(subject) : this.allSubjects.slice()));
+    this.filteredInterests = this.interestCtrl.valueChanges.pipe(
+      startWith(null),
+      map((interest: string | null) => interest ? this._filterInterest(interest) : this.allInterests.slice()));
   }
 
   ngOnInit(): void {
@@ -71,7 +79,8 @@ export class CreateProfileComponent implements OnInit {
         id: user.uid,
         grade: this.profileForm.value.grade,
         highSchool: this.profileForm.value.highSchool,
-        subjects: this.subjects
+        subjects: this.subjects,
+        interests: this.interests
       })
     );
   }
@@ -79,19 +88,31 @@ export class CreateProfileComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-
     // Add our fruit
     if ((value || '').trim()) {
       this.subjects.push(value.trim());
     }
-
     // Reset the input value
     if (input) {
       input.value = '';
     }
-
     this.subjectCtrl.setValue(null);
   }
+
+  addInterest(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+    // Add our interest
+    if ((value || '').trim()) {
+      this.interests.push(value.trim());
+    }
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+    this.interestCtrl.setValue(null);
+  }
+
 
   remove(subject: string): void {
     const index = this.subjects.indexOf(subject);
@@ -101,16 +122,36 @@ export class CreateProfileComponent implements OnInit {
     }
   }
 
+  removeInterest(interest: string): void {
+    const index = this.interests.indexOf(interest);
+
+    if (index >= 0) {
+      this.interests.splice(index, 1);
+    }
+  }
+
   selected(event: MatAutocompleteSelectedEvent): void {
     this.subjects.push(event.option.viewValue);
     this.subjectInput.nativeElement.value = '';
     this.subjectCtrl.setValue(null);
   }
 
+  selectedInterest(event: MatAutocompleteSelectedEvent): void {
+    this.interests.push(event.option.viewValue);
+    this.interestInput.nativeElement.value = '';
+    this.interestCtrl.setValue(null);
+  }
+
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.allSubjects.filter(subject => subject.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  private _filterInterest(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allInterests.filter(interest => interest.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

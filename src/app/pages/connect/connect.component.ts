@@ -20,9 +20,11 @@ export class ConnectComponent implements OnInit {
 
   ngOnInit(): void {
     this.connectservice.getUsers().subscribe(users => {
+      console.log(users);
+      
       this.auth.user.subscribe(user => {
         this.users = users.filter(x => x.id !== user.uid);
-        console.log(this.users, user.uid);
+        console.log('user ids ',this.users, user.uid);
       });
     });
   }
