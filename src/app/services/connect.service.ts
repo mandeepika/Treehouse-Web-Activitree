@@ -59,18 +59,5 @@ export class ConnectService {
     );
   }
 
-
-  // getUsers(): Observable<User[]>{
-  //   console.log('this is my user I think?? ',this.auth.user);
-  //   return this.auth.user.pipe(
-  //     mergeMap((user) => {
-  //       //console.log('see whats printed ',this.service.get(user.uid));
-  //       return this.service.get(user.uid).pipe(
-  //         map(user => this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', 'hello')))
-  //       )
-  //     }
-  //   )
-  // }
-  //console.log(this.interests);
 }
 
