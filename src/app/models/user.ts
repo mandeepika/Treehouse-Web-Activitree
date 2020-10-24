@@ -4,4 +4,6 @@ export interface User {
     highSchool?: string;
     grade?: number;
     subjects?: string[];
+    interests?: string[];
+    todos?: string[];
 }

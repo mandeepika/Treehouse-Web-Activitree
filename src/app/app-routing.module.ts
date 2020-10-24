@@ -28,8 +28,7 @@ const routes: Routes = [
   { path: 'register/continue', component: CreateProfileComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'dashboard', component: DashboardComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'profile', component: ProfileComponent },
-  {
-    path: 'games',
+  { path: 'games',
     children: [
       { path: '', component: GamesComponent },
       { path: 'quiz-calculus', component: QuizCalculusComponent },

@@ -12,4 +12,13 @@ export class CurriculumComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isMenuOpen = true;
+  contentMargin = 240;
+
+  items=[
+    {name:"Math",subItems:[{name:"Algebra"},{name:"Geometry"},{name:"Pre-Calculus"},{name:"Calculus"}]},
+    {name:"English",subItems:[{name:"AP Language"},{name:"AP Literature"},{name:"British Literature"}]},
+    {name:"Science",subItems:[{name:"Biology"},{name:"Chemistry"},{name:"Physics"}]}
+  ];
+
 }

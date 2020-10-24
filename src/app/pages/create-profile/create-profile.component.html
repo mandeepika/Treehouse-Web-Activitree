@@ -1,25 +1,25 @@
 <div id="container">
-    <mat-horizontal-stepper #stepper linear="true" fxFlex="80%">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper fxFlex="80%">
         <mat-step [stepControl]="profileForm">
             <form [formGroup]="profileForm" fxLayout="column" style="padding-top:50px" (ngSubmit)="updateName()">
                 <ng-template matStepLabel>Create your profile</ng-template>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field>
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="Firstname Lastname" formControlName="name">
+                    <input matInput placeholder="Firstname Lastname" formControlName="name" required>
                 </mat-form-field>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="example@email.com" formControlName="email">
+                    <input matInput placeholder="example@email.com" formControlName="email" required>
                 </mat-form-field>
 
-                <mat-form-field style="width:30vw" appearance="standard">
+                <mat-form-field>
                     <mat-label>School</mat-label>
-                    <input matInput placeholder="ex: Davis High School" formControlName="highSchool">
+                    <input matInput placeholder="ex: Davis High School" formControlName="highSchool" required>
                 </mat-form-field>
 
-                <mat-form-field style="width:30vw">
+                <mat-form-field>
                     <mat-label>Current Grade in School</mat-label>
                     <mat-select formControlName="grade">
                         <mat-option *ngFor="let grade of grades" [value]="grade">
@@ -28,13 +28,13 @@
                     </mat-select>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" matStepperNext type="submit">Next</button>
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
             </form>
         </mat-step>
 
-        <mat-step>
+        <mat-step label="Choose your subjects">
             <div style="padding-top:50px">
-                <ng-template matStepLabel>Choose your subjects</ng-template>
+                <!-- <ng-template matStepLabel>Choose your subjects</ng-template> -->
                 <mat-form-field class="example-chip-list">
                     <mat-chip-list #chipList aria-label="Subject selection">
                         <mat-chip *ngFor="let subject of subjects" [selectable]="selectable" [removable]="removable"
@@ -53,7 +53,34 @@
                     </mat-autocomplete>
                 </mat-form-field>
 
-                <div fxFill fxLayout="row" fxLayoutAlign="space-evenly center">
+                <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step label="Choose your interests">
+            <div style="padding-top: 50px;">
+                <mat-form-field class="example-chip-list">
+                    <mat-chip-list #chipList2 aria-label="Interest selection">
+                        <mat-chip *ngFor="let interest of interests" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeInterest(interest)">
+                            {{interest}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="New interest..." #interestInput [formControl]="interestCtrl"
+                            [matAutocomplete]="auto" [matChipInputFor]="chipList2"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addInterest($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedInterest($event)">
+                        <mat-option *ngFor="let interest of filteredInterests | async" [value]="interest">
+                            {{interest}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
                     <button mat-raised-button mat-button matStepperPrevious>Back</button>
                     <button mat-raised-button mat-button color="primary" 
                             (click)="submit()"

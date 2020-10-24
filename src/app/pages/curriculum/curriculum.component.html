@@ -1,84 +1,41 @@
-<head>
-  <title> Curriculum Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap" rel="stylesheet">
-</head>
-<body style=background-color:lightblue>
 
-<h2>Welcome to the Curriculum Page!</h2>
-<!--<p>The Curriculum pages provides resources and extra materials to help with classes!</p>-->
+<mat-sidenav-container id="sidenavContainer">
+  <mat-sidenav mode="side" #sidenav id="sidenav" opened>
+    <mat-list style="margin-left:10%;">
+      <ng-container *ngFor="let item of items">
+        <mat-list-item class="main-item">{{item.name}}</mat-list-item>
+        <mat-list style="margin-left:15px;">
+          <div *ngFor="let subItem of item.subItems">
+            <mat-list-item class="sub-item">{{ subItem.name }}</mat-list-item>
+          </div>
+        </mat-list>
+      </ng-container>
+    </mat-list>
+  </mat-sidenav>
 
-<div class="testmenu">
-<button mat-button [matMenuTriggerFor]="belowMenu1">Math</button>
-<mat-menu #belowMenu1="matMenu" yPosition="below">
-  <button mat-menu-item>Calculus</button>
-  <button mat-menu-item>Precalculus</button>
-  <button mat-menu-item>Algebra</button>
-</mat-menu>
+  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
+    <div class="maincontent">
+      <!-- Content should be pulled from firebase collection depending on the subject selected -->
+      <h1>Welcome to the Curriculum Page</h1>
+      <h2>Use this page to access supplementary resources for classes! We have resources such as videos, notes, 
+        and practice exams. You can save resources to the dashboard for future reference!</h2>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<router-outlet></router-outlet>
 
-<button mat-button [matMenuTriggerFor]="belowMenu2">Science</button>
-<mat-menu #belowMenu2="matMenu" yPosition="below">
-  <button mat-menu-item>Biology</button>
-  <button mat-menu-item>Chemistry</button>
-  <button mat-menu-item>Physics</button>
-</mat-menu>
 
-<button mat-button [matMenuTriggerFor]="belowMenu3">English</button>
-<mat-menu #belowMenu3="matMenu" yPosition="below">
-  <button mat-menu-item>AP Language</button>
-  <button mat-menu-item>AP Literature</button>
-</mat-menu>
 
-<button mat-button [matMenuTriggerFor]="belowMenu4">History</button>
-<mat-menu #belowMenu4="matMenu" yPosition="below">
-  <button mat-menu-item>U.S. History</button>
-  <button mat-menu-item>World History</button>
-  <button mat-menu-item>U.S. Government</button>
-  <button mat-menu-item>Economics</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu5">Videos</button>
-<mat-menu #belowMenu5="matMenu" yPosition="below">
-  <button mat-menu-item>Math</button>
-  <button mat-menu-item>Science</button>
-  <button mat-menu-item>English</button>
-  <button mat-menu-item>History</button>
-</mat-menu>
-
-<button mat-button [matMenuTriggerFor]="belowMenu6">Practice Exams</button>
-<mat-menu #belowMenu6="matMenu" yPosition="below">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-</div>
-
-<!--https://clipartion.com/wp-content/uploads/2016/04/earth-science-teacher-clipart-free-1.gif
- "https://www.netclipart.com/pp/m/57-576568_last-viewed-post-book-cartoon.png"
-"https://st.depositphotos.com/1005314/3970/v/450/depositphotos_39704197-stock-illustration-chemistry-teacher.jpg"
-"https://lh3.googleusercontent.com/proxy/DZtqjU7g_oQ2m5V-n-g_JFi6ob095cJI9pz8VVrM8XgBkGjtG_PovgyFpClKq2obJcQSQEWB7ORiOB5-rHvrNppPuA_2EF8"
--->
-<!--<span id="img1">
-    <img width="500" height="333" src="https://clipartion.com/wp-content/uploads/2016/04/earth-science-teacher-clipart-free-1.gif"/>
-</span>
-<span id="img2">
-    <img width="500" height="333" src="https://lh3.googleusercontent.com/proxy/DZtqjU7g_oQ2m5V-n-g_JFi6ob095cJI9pz8VVrM8XgBkGjtG_PovgyFpClKq2obJcQSQEWB7ORiOB5-rHvrNppPuA_2EF8"/>
-</span>
--->
-
-<!--Important Image http://clipart-library.com/images/76cr9nzTK.jpg-->
-
-<div class="row">
+<!-- <div class="row">
   <div class="column">
     <h3><b>About</b></h3>
     <p>Students can use this Curriculum Page to access supplementary resources for classes that they are struggling with. We have resources such as supplemental videos, notes, and practice exams.</p>
     <img id="img1" src="http://clipart-library.com/images/ki8nK5peT.png" alt="Jungkook" style="width:50%">
 </div>
   <div class="column">
-    <!--<img src="http://clipart-library.com/images/Lcdkqxxc4.jpg" alt="BTS" style="width:100%"> -->
     <img src="http://clipart-library.com/images/8izngkLLT.gif" alt="BTS" style="width:100%">
 </div>
   <div class="column">
-     <!--<img src="http://clipart-library.com/data_images/297564.gif" alt="BTS" style="width:100%">-->
      <img src="http://clipart-library.com/data_images/297559.png" alt="BTS" style="width:100%">
   </div>
-</div>
-</body>
+</div> -->

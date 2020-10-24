@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
-import { map, mergeMap } from "rxjs/operators";
+import { first, map, mergeMap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,11 @@ export class ConnectService {
   userDoc: AngularFirestoreDocument<User>
   user: User;
   currentUser: firebase.User;
-  currentUserID: string;
-  myHighSchool: string;
+  interests: string[];
 
   constructor(public auth: AngularFireAuth, private service: UserService, public afs: AngularFirestore) { 
       //var myHighSchool = firebase.auth().currentUser.highSchool
+      //this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', 'hello'));
 
       //console.log('PRINTING THE CURRENT USER',this.auth.currentUser);
 
@@ -44,11 +44,20 @@ export class ConnectService {
       // });
   }
 
-  getUsers(): Observable<User[]>{
+  // Go through current user's interest list.
+  // In place of 'hello' above, put 'any of those interests in user's interest list'.
+
+  //Logic
+  //for interest in currentUser.interests{
+     // this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', interest));
+  // }
+
+  getUsers(): Observable<any>{
     return this.auth.user.pipe(
-      mergeMap(user => this.service.get(user.uid)), 
-      mergeMap(user => this.afs.collection<User>('users',ref => ref.where('highSchool', '==', user.highSchool)).valueChanges({idField: 'id'}))
+      mergeMap(user => this.service.get(user.uid)),
+      mergeMap(user => { const x = user.interests.map(interest => this.afs.collection<User>('users',ref => ref.where('interests', 'array-contains', interest)).valueChanges({idField: 'id'})); return x}),
     );
   }
+
 }
 
