@@ -51,7 +51,6 @@ export class ConnectService {
   //for interest in currentUser.interests{
      // this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', interest));
   // }
-  //this is a change
 
   getUsers(): Observable<any>{
     return this.auth.user.pipe(

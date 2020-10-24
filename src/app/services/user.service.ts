@@ -16,6 +16,7 @@ export class UserService {
   }
 
   get(firebaseUID: string): Observable<User> {
+    console.log('what is returned from get fn',this.collection.doc<User>(firebaseUID).valueChanges());
     return this.collection.doc<User>(firebaseUID).valueChanges();
   }
 
