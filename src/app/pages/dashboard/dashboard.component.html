@@ -77,17 +77,50 @@
             </div>
         </div>
     </div>
+
+    <!-- TO DO LIST HTML IS BELOW -->
+    <!-- Things to research before you start:
+    1. Typescript functions
+    2. How to add a click handler in angular/typescript. 
+    3. How to add and delete items from cloud firestore.
+    4. Might also want to research angular two way data binding. -->
+
+    <!-- Some background you'll need to know: -->
+    <!-- The for loop iterates through the todos[] array and displays each todo's title on the page -->
+    <!-- The todos[] array can be found in the typescript file for this component -->
+    <!-- This array contains a bunch of Items (data type). This data type was created in models->item.ts
+    An Item has 5 properties - id, title, done, editing, and priority. There is already a newItem with some default properties in the typescript file.
+
+    The input tag below is the textfield where the user needs to type their todo-item. (run ng serve --open to see it)
+    The Add Task button is what the user clicks on to add a task.
+    For each user, there is a collection of todo-items. Check this link for the firestore document structure:
+    https://console.firebase.google.com/u/0/project/activitree-edu/firestore/data~2Fusers~2F0Q5j9TOYHhWmTjAFtNok1zMllJ82~2Ftodo-items
+
+    What should happen when the user clicks on Add Task:
+    The thing they entered in the text field should be set as newItem.title (in typescript file)
+    Done should be set to false for now, and same with editing. Priority should be set to 1 for now (we will change later)
+    Once all these properties of newItem are filled, the newItem has to be added to the firestore todo-items collection (link above).
+    This will happen in the item.service.ts file. -->
+
+    <!-- Some extra clarification and steps:
+    To add a new item, that is, create a newItem with the properties mentioned above,
+    you can write a function called addItem() and call this function when the Add Task button is clicked.
+    The addItem function will populate the fields of the newItem (already created in typescript) with the specified fields.
+    Then it will call another function called addTask() which is in the item.service.ts file. 
+    This function will add the task to the todo-items collection in firestore.
+    You can follow the same steps for deleting an item -->
+
     <div fxFlex="25" fxLayout="column" id="to-do" class="tile">
         <h2 class="heading">To-Do</h2>
         <table>
             <tr *ngFor="let todo of todos">
-                <td *ngIf="!todo.editing" [ngClass]="{ 'completed' : todo.done }"><mat-checkbox color="primary" [(ngModel)]="todo.done">{{todo.title}}</mat-checkbox></td>
-                <td *ngIf="todo.editing && itemToEdit.id==todo.id"><mat-checkbox color="primary" [(ngModel)]="todo.done"><input type="text" class="editable" [(ngModel)]="todo.title"></mat-checkbox></td>
+                <td><mat-checkbox color="primary">{{todo.title}}</mat-checkbox></td>
+                <td><mat-checkbox color="primary"><input type="text" class="editable" [(ngModel)]="todo.title"></mat-checkbox></td>
                 <td class="right-align"><button class="edit-button"><mat-icon class="edit-icon">edit</mat-icon></button></td>
                 <td class="right-align"><button class="delete-button"><mat-icon class="delete-icon">delete_outline</mat-icon></button></td>
             </tr>
         </table>
-        <input type="text" placeholder="Enter task..." [(ngModel)]="newTask.title" name="title">
+        <input type="text" placeholder="Enter task..." [(ngModel)]="newItem.title">
         <button mat-button color="primary">Add Task</button>
     </div>
 </div>
