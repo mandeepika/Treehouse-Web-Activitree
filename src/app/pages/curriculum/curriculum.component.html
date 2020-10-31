@@ -15,7 +15,55 @@
 
   <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
     <div class="maincontent">
-      <!-- Content should be pulled from firebase collection depending on the subject selected -->
+
+      <!-- Some steps to help with the feature:
+      IMPORTANT NOTES: 1. Whenever you call a function from the same file, you need to use the word 'this' in front of it: example - this.functionName()
+          2. Some things to review/look up before starting: Angular for loops, How to fetch a document from cloud firestore in angular.
+
+      STEP 1, Create collections in firestore for each subject category (Math, English, Science, etc.)
+      The documents in these collections should have the following fields:
+      1. Name (string) - this is the name of the document (Integration for Beginners, Sum of Squares Tutorial, etc.)
+      2. Subject (string) - IMPORTANT: this is different from the subject category. If subject category is science, for example, subject could be Biology or Chemistry or Physics.
+      3. Viewed (boolean) - This indicates whether the document content has been viewed.
+      4. Saved (boolean) - This indicates whether the document content has been saved to the user's dashboard.
+
+      STEP 2, create a sample document in each collection. Fill the above fields with whatever you want.
+
+      STEP 3, create a service called subject. You can use this command: ng generate service services/subject
+      This will create a file called subject.service.ts in the services folder.
+      In this file, first import everything that is in connect.service.ts. 
+      Then copy and paste all the parameters from the constructor of connect.service.ts. 
+      
+      STEP 4, write a function that fetches all the documents from a given collection. 
+      This function needs to go in the constructor of subject.service.ts (between the curly brackets). You can use this skeleton:
+
+       getDocs(category, subject){
+          this.resourcesCollection = this.afs.collection(category,ref => ref.where('Subject', '=', subject));
+       }
+        The above function takes in a subject category and a subject, and looks for the collection with that category name.
+        Then it searches for all the documents in that collection with the particular subject given. 
+        It stores all these documents into resourcesCollection. But these documents will be a bunch of firestore objects.
+        You'll need to look up firestore documentation to turn this data into readable format. 
+        
+      STEP 5, write a function in curriculum.component.ts that calls the above function. You can use this skeleton (this is just pseudocode):
+       Note: before you do this, import subject.service.ts in the curriculum typescript.
+       Also add this line of code as a constructor parameter: private subjectservice: SubjectService
+       This just makes sure the service you just created is available to use here.
+
+      getResources(){
+        call subjectservice.getDocs()
+        put all these docs into an array (you should create the array beforehand in the typescript)
+      }
+
+      In the typescript, under the ng:onInit() function, call the above function - this.getResources()
+
+      STEP 6, this should be the easiest part because all the docs are already in an array. 
+      To clarify, this array should now contain a bunch of objects, each with property name, subject, viewed, and saved (like the format above).
+      Now, you'll need to make cards with the subject names. 
+      Use an angular for loop to go through every doc in the array, and make a card with title {{doc.name}} (you can look up angular for loops). 
+      This is just accessing the 'name' property of the document that you have retrieved. We will later add the other properties. -->
+
+      
       <h1>Welcome to the Curriculum Page</h1>
       <h2>Use this page to access supplementary resources for classes! We have resources such as videos, notes, 
         and practice exams. You can save resources to the dashboard for future reference!</h2>
@@ -23,19 +71,3 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 <router-outlet></router-outlet>
-
-
-
-<!-- <div class="row">
-  <div class="column">
-    <h3><b>About</b></h3>
-    <p>Students can use this Curriculum Page to access supplementary resources for classes that they are struggling with. We have resources such as supplemental videos, notes, and practice exams.</p>
-    <img id="img1" src="http://clipart-library.com/images/ki8nK5peT.png" alt="Jungkook" style="width:50%">
-</div>
-  <div class="column">
-    <img src="http://clipart-library.com/images/8izngkLLT.gif" alt="BTS" style="width:100%">
-</div>
-  <div class="column">
-     <img src="http://clipart-library.com/data_images/297559.png" alt="BTS" style="width:100%">
-  </div>
-</div> -->
