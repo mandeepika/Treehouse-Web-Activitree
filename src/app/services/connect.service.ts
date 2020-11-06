@@ -18,39 +18,18 @@ export class ConnectService {
   interests: string[];
 
   constructor(public auth: AngularFireAuth, private service: UserService, public afs: AngularFirestore) { 
-      //var myHighSchool = firebase.auth().currentUser.highSchool
-      //this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', 'hello'));
-
-      //console.log('PRINTING THE CURRENT USER',this.auth.currentUser);
-
-      // this.auth.user.subscribe(user => {
-      //   this.currentUser = user;
-      //   this.service.get(user.uid).subscribe(user => {
-      //     this.user = user;
-      //     console.log('UserData ',this.user);
-      //     this.myHighSchool = this.user.highSchool; //works till here
-
-      //     this.usersCollection = this.afs.collection('users',ref => ref.where('highSchool', '==', 'Foothill High School'));
-
-      //     this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {
-      //       return changes.map(a => {
-      //         const data = a.payload.doc.data() as User;
-      //         data.id = a.payload.doc.id;
-      //         return data;
-      //       })
-      //       //console.log(this.users);
-      //     }));
-      //   });
-      // });
+  
   }
 
-  // Go through current user's interest list.
-  // In place of 'hello' above, put 'any of those interests in user's interest list'.
+  // Explanation:
+  // Every user has an interests array (see the firestore structure - https://console.firebase.google.com/u/0/project/activitree-edu/firestore/data~2Fusers~2F0Q5j9TOYHhWmTjAFtNok1zMllJ82)
+  // We need to check if any other user's interests match the current logged in user's interests.
+  // If they match, we need to display those users on the page.
+  // The front-end has already been done for this feature. 
+  //  
 
-  //Logic
-  //for interest in currentUser.interests{
-     // this.usersCollection = this.afs.collection('users',ref => ref.where('interests', 'array-contains', interest));
-  // }
+
+  // This is what we've tried (it doesn't work)
 
   getUsers(): Observable<any>{
     return this.auth.user.pipe(

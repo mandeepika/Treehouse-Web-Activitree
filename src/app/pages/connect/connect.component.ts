@@ -22,6 +22,8 @@ export class ConnectComponent implements OnInit {
     this.connectservice.getUsers().subscribe(users => {
       console.log(users);
       
+      // the following block removes the current user from this.users array
+      //user is the current user. user.uid is the current user's id. 
       this.auth.user.subscribe(user => {
         this.users = users.filter(x => x.id !== user.uid);
         console.log('user ids ',this.users, user.uid);
